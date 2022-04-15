@@ -1,0 +1,5 @@
+node_modules/
+public/bundle.js
+public/app.js
+public/confMat.js
+public/third_party/
