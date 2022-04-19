@@ -224,7 +224,7 @@ When making contributions, refer to the [`CONTRIBUTING`](CONTRIBUTING.md) guidel
 To cite our paper, please use:
 
 ```bibtex
-@inproceedings{gortler2022neo,
+@inproceedings{goertler2022neo,
   title={Neo: Generalizing Confusion Matrix Visualization to Hierarchical and Multi-Output Labels},
   author={Görtler, Jochen and Hohman, Fred and Moritz, Dominik and Wongsuphasawat, Kanit and Ren, Donghao and Nair, Rahul and Kirchner, Marc and Patel, Kayur},
   booktitle={Proceedings of the SIGCHI Conference on Human Factors in Computing Systems},
