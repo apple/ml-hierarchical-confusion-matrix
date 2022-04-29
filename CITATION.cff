@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Görtler"
+  given-names: "Jochen"
+- family-names: "Hohman"
+  given-names: "Fred"
+- family-names: "Moritz"
+  given-names: "Dominik"
+title: "Neo: Hierarchical Confusion Matrix"
+version: 1.0.0
+date-released: 2022-04-18
+url: "https://github.com/apple/ml-hierarchical-confusion-matrix"
+preferred-citation:
+  type: conference-article
+  authors:
+    - family-names: "Görtler"
+      given-names: "Jochen"
+    - family-names: "Hohman"
+      given-names: "Fred"
+    - family-names: "Moritz"
+      given-names: "Dominik"
+    - family-names: "Wongsuphasawat"
+      given-names: "Kanit"
+    - family-names: "Ren"
+      given-names: "Donghao"
+    - family-names: "Nair"
+      given-names: "Rahul"
+    - family-names: "Kirchner"
+      given-names: "Marc"
+    - family-names: "Patel"
+      given-names: "Kayur"
+  doi: "10.1145/3491102.3501823"
+  journal: "Proceedings of the SIGCHI Conference on Human Factors in Computing Systems"
+  title: "Neo: Generalizing Confusion Matrix Visualization to Hierarchical and Multi-Output Labels"
+  year: 2022
+  organization: "ACM"
