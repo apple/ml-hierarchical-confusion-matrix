@@ -4,14 +4,12 @@
 
 The confusion matrix, a ubiquitous visualization for helping people evaluate machine learning models, is a tabular layout that compares predicted class labels against actual class labels over all data instances. Neo is a visual analytics system that enables practitioners to flexibly author and interact with hierarchical and multi-output confusion matrices, visualize derived metrics, renormalize confusions, and share matrix specifications.
 
-**[Here you can find a live demo of Neo.](https://apple.github.io/ml-hierarchical-confusion-matrix/)**
-
 This code accompanies the research paper:
 
 **[Neo: Generalizing Confusion Matrix Visualization to Hierarchical and Multi-Output Labels](https://machinelearning.apple.com/research/generalizing-confusion-matrix)**  
 Jochen Görtler, Fred Hohman, Dominik Moritz, Kanit Wongsuphasawat, Donghao Ren, Rahul Nair, Marc Kirchner, Kayur Patel  
-*ACM Conference on Human Factors in Computing Systems (CHI), 2022.*
-
+*ACM Conference on Human Factors in Computing Systems (CHI), 2022.*  
+[<img width="16" alt="image" src="https://user-images.githubusercontent.com/5741691/166707770-eac596b5-2622-4899-9ff8-8c3037b03b3a.png"> Paper](https://arxiv.org/abs/2110.12536), [<img width="12" alt="image" src="https://user-images.githubusercontent.com/5741691/166709218-c8fa7af7-a5a4-467b-b77d-679aaf1aabda.png"> Live demo](https://apple.github.io/ml-hierarchical-confusion-matrix/), [<img width="18" alt="image" src="https://user-images.githubusercontent.com/5741691/166709344-e11b80c9-1b24-4412-bd7d-03c7e3dfaecc.png"> Video](https://www.youtube.com/watch?v=LmsJJDHfGlI), [<img width="18" alt="image" src="https://user-images.githubusercontent.com/5741691/166709459-5d0e44a5-0dbc-4679-b071-10ed0a3cdd92.png"> Video Preview](https://www.youtube.com/watch?v=8ZxvsLPIF_Q), [<img width="20" alt="image" src="https://user-images.githubusercontent.com/5741691/166706116-4d2c003f-fd68-4b75-b896-8f9a588318c1.png"> Code](https://github.com/apple/ml-hierarchical-confusion-matrix/) 
 
 ## Documentation
 
