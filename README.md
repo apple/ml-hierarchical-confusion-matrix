@@ -4,6 +4,8 @@
 
 The confusion matrix, a ubiquitous visualization for helping people evaluate machine learning models, is a tabular layout that compares predicted class labels against actual class labels over all data instances. Neo is a visual analytics system that enables practitioners to flexibly author and interact with hierarchical and multi-output confusion matrices, visualize derived metrics, renormalize confusions, and share matrix specifications.
 
+**[Here you can find a live demo of Neo.](https://apple.github.io/ml-hierarchical-confusion-matrix/)**
+
 This code accompanies the research paper:
 
 **[Neo: Generalizing Confusion Matrix Visualization to Hierarchical and Multi-Output Labels](https://machinelearning.apple.com/research/generalizing-confusion-matrix)**  
