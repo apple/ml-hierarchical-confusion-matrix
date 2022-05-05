@@ -117,7 +117,7 @@ The different loaders can be found in [`src/loaders`](src/loaders), which includ
 #### Example 1: Conventional Confusions
 The confusions for data with `actual` labels of `fruit:lemon` that are incorrectly predicted as `fruit:apple`, of which there are `count` 1 of them. 
 
-```
+```json
 {
     "actual": [
         "fruit:lemon"
@@ -132,7 +132,7 @@ The confusions for data with `actual` labels of `fruit:lemon` that are incorrect
 #### Example 2: Hierarchical Confusions
 The confusions for hierarchical data with `actual` labels of `fruit:citrus:lemon` that are incorrectly predicted as `fruit:pome:apple`, of which there are `count` 2 of them. Note `:` denotes hierarchies.
 
-```
+```json
 {
     "actual": [
         "fruit:citrus:lemon"
@@ -147,7 +147,7 @@ The confusions for hierarchical data with `actual` labels of `fruit:citrus:lemon
 #### Example 3: Multi-output Confusions
 The confusions for multi-output data with `actual` labels of `fruit:lemon,taste:sweet` that are incorrectly predicted as `fruit:apple,taste:sour`, of which there are `count` 3 of them. Note `,` denotes multi-ouput labels.
 
-```
+```json
 {
     "actual": [
         "fruit:lemon",
@@ -164,7 +164,7 @@ The confusions for multi-output data with `actual` labels of `fruit:lemon,taste:
 #### Example 4: Hierarchical and Multi-output Confusions
 The confusions for hierarchical and multi-output data with `actual` labels of `fruit:citrus:lemon,taste:sweet,ripeness:ripe` that are incorrectly predicted as `fruit:pome:apple,taste:sour,ripeness:not-ripe`, of which there are `count` 4 of them.
 
-```
+```json
 {
     "actual": [
         "fruit:citrus:lemon",
