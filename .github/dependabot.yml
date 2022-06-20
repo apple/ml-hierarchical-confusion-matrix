@@ -3,7 +3,7 @@ updates:
   - package-ecosystem: npm
     directory: '/'
     schedule:
-      interval: weekly
+      interval: monthly
       day: sunday
       time: '22:42'
       timezone: PST8PDT
