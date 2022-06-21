@@ -9,7 +9,7 @@
     ],
     "devDependencies": {
         "@babel/core": "^7.17.5",
-        "@babel/preset-typescript": "^7.16.7",
+        "@babel/preset-typescript": "^7.17.12",
         "@rollup/plugin-commonjs": "^21.0.2",
         "@rollup/plugin-json": "^4.1.0",
         "@rollup/plugin-node-resolve": "^13.1.3",
