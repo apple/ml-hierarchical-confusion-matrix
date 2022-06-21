@@ -7,4 +7,10 @@ updates:
       day: sunday
       time: '22:42'
       timezone: PST8PDT
-    open-pull-requests-limit: 10
+  - package-ecosystem: github-actions
+    directory: '/'
+    schedule:
+      interval: weekly
+      day: sunday
+      time: '23:00'
+      timezone: PST8PDT
