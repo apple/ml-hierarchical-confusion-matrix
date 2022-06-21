@@ -24,7 +24,7 @@
         "@types/ndarray": "^1.0.11",
         "@types/node": "^18.0.0",
         "@typescript-eslint/eslint-plugin": "^5.29.0",
-        "@typescript-eslint/parser": "^5.14.0",
+        "@typescript-eslint/parser": "^5.29.0",
         "babel-jest": "^27.5.1",
         "eslint": "^8.18.0",
         "eslint-plugin-jest": "^26.5.3",
