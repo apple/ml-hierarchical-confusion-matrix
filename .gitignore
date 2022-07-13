@@ -68,3 +68,44 @@ node_modules
 public/bundle.*
 public/app.*
 public/confMat.*
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Jupyter extension compiled javascript
+py-notebook/jupyter-widget/neo_confusion_jupyter/labextension/
+py-notebook/jupyter-widget/neo_confusion_jupyter/nbextension/
