@@ -8,7 +8,7 @@
         "src"
     ],
     "devDependencies": {
-        "@babel/core": "^7.17.5",
+        "@babel/core": "^7.18.10",
         "@babel/preset-typescript": "^7.18.6",
         "@rollup/plugin-commonjs": "^22.0.0",
         "@rollup/plugin-json": "^4.1.0",
