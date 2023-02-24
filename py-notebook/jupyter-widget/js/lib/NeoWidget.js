@@ -19,21 +19,28 @@ const confMat = require("./confMat");
 
 // When serialiazing the entire widget state for embedding, only values that
 // differ from the defaults will be specified.
-var HierchicalConfusionMatrixModel = widgets.DOMWidgetModel.extend({
-  defaults: _.extend(widgets.DOMWidgetModel.prototype.defaults(), {
-    _model_name: "HierchicalConfusionMatrixModel",
-    _view_name: "HierchicalConfusionMatrixView",
-    _model_module: "neo-confusion-jupyter",
-    _view_module: "neo-confusion-jupyter",
-    _model_module_version: "0.1.0",
-    _view_module_version: "0.1.0",
-  }),
-});
+
+
+
+class HierchicalConfusionMatrixModel extends widgets.DOMWidgetModel {
+  defaults() {
+    return {
+      ...super.defaults(),
+      _model_name: "HierchicalConfusionMatrixModel",
+      _view_name: "HierchicalConfusionMatrixView",
+      _model_module: "neo-confusion-jupyter",
+      _view_module: "neo-confusion-jupyter",
+      _model_module_version: "0.1.0",
+      _view_module_version: "0.1.0",
+    };
+  }
+}
+
 
 // Custom View. Renders the widget model.
-var HierchicalConfusionMatrixView = widgets.DOMWidgetView.extend({
+class HierchicalConfusionMatrixView extends widgets.DOMWidgetView {
   // Defines how the widget gets rendered into the DOM
-  render: function () {
+  render() {
     try {
       // parse data
       let dataStr = this.model.get("inputData");
@@ -57,13 +64,13 @@ var HierchicalConfusionMatrixView = widgets.DOMWidgetView.extend({
         "Error loading in data to populate matrix: "
       );
     }
-  },
+  }
 
-  data_changed: function () {
+  data_changed() {
     // TODO UPDATE MATRIX WITH NEW DATA
     this.el.textContent = this.model.get("inputData");
-  },
-});
+  }
+};
 
 module.exports = {
   HierchicalConfusionMatrixModel: HierchicalConfusionMatrixModel,
