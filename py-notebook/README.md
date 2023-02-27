@@ -6,7 +6,7 @@ To use Neo in Jupyter Lab or Jupyter Notebook, install a local Jupyter extension
 
 1. In a terminal, navigate to the included jupyter extension folder:
 
-`$ cd neo-confusion-jupyter`
+`$ cd jupyter-widget`
 
 2. Locally install the neo jupyter extension package to Python:
 
@@ -24,24 +24,28 @@ See the notebook `demo.ipynb` for usage examples in action.
 
 To run with dummy data
 
-```
-from neo_confusion_jupyter import HierchicalConfusionMatrix as neo neo() # Neo usage showing dummy data
+```py
+from neo_confusion_jupyter import HierchicalConfusionMatrix as neo
+
+neo() # Neo usage showing dummy data
 ```
 
 To run with output typical of a scikit-learn workflow
 
-```
-from neo_confusion_jupyter import HierchicalConfusionMatrix as neo neo({'true': y_test, 'predicted': y_pred, 'labels': labels})
+```py
+from neo_confusion_jupyter import HierchicalConfusionMatrix as neo 
+
+neo({'true': y_test, 'predicted': y_pred, 'labels': labels})
 ```
 
 To run with json formatted output
 
-```
+```py
 from neo_confusion_jupyter import HierchicalConfusionMatrix as neo
 import json
 
 with open('fruit.json') as file:
-data = json.load(file)
+    data = json.load(file)
 
 rootLabels = ['fruit', 'taste', 'ripeness']
 
