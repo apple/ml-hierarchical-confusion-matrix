@@ -23,7 +23,7 @@
         "@types/lodash": "^4.14.179",
         "@types/ndarray": "^1.0.11",
         "@types/node": "^18.11.9",
-        "@typescript-eslint/eslint-plugin": "^5.38.1",
+        "@typescript-eslint/eslint-plugin": "^5.57.0",
         "@typescript-eslint/parser": "^5.47.1",
         "babel-jest": "^29.4.3",
         "eslint": "^8.35.0",
