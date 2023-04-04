@@ -17,6 +17,37 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
     function truncate(str: string) {
         return str.length > truncateText ? str.substring(0, truncateText) : str;
     }
+
+    function expand() {
+        const index = $spec.collapsed.indexOf(node.data.id);
+        if (index > -1) {
+            $spec.collapsed.splice(index, 1);
+            $spec = $spec;
+        }
+    }
+
+    function collapse() {
+        $spec.collapsed.push(node.data.id);
+        $spec = $spec;
+    }
+
+    function clear() {
+        const filterSet = new Set($spec.filter);
+        filterSet.delete(node.data.id);
+        $spec.filter = [...filterSet];
+        $spec = $spec;
+    }
+
+    function filter() {
+        if (!$spec.filter || $spec.filter.length === 0) {
+            $spec.filter = [node.data.id];
+        } else {
+            const filterSet = new Set($spec.filter);
+            filterSet.add(node.data.id);
+            $spec.filter = [...filterSet];
+        }
+        $spec = $spec;
+    }
 </script>
 
 <style>
@@ -47,13 +78,8 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
     <text
         dominant-baseline="middle"
         style="cursor: pointer;"
-        on:click={() => {
-            const index = $spec.collapsed.indexOf(node.data.id);
-            if (index > -1) {
-                $spec.collapsed.splice(index, 1);
-                $spec = $spec;
-            }
-        }}
+        on:click={expand}
+        on:keydown={expand}
         class={$currentCell && $currentCell[direction] === node ? 'label active' : 'label'}>
         <tspan dominant-baseline="middle" class="collapseIcon">{'>'}</tspan>
         {truncate(node.data.name)}
@@ -64,10 +90,8 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
         style="cursor: pointer;"
         class={$currentCell && $currentCell[direction] === node ? 'label active' : 'label'}>
         <tspan
-            on:click={() => {
-                $spec.collapsed.push(node.data.id);
-                $spec = $spec;
-            }}>
+            on:click={collapse}
+            on:keydown={collapse}>
             <tspan dominant-baseline="middle" class="collapseIcon">⋁</tspan>
             <tspan dominant-baseline="middle" x="10">
                 {truncate(node.data.name)}
@@ -75,27 +99,15 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
         </tspan>
         {#if $spec.filter?.includes(node.data.id)}
             <tspan dominant-baseline="middle"
-                on:click={() => {
-                    const filterSet = new Set($spec.filter);
-                    filterSet.delete(node.data.id);
-                    $spec.filter = [...filterSet];
-                    $spec = $spec;
-                }}>
+                on:click={clear}
+                on:keydown={clear}>
                 ❌
             </tspan>
         {:else}
             <tspan
                 y="2"
-                on:click={() => {
-                    if (!$spec.filter || $spec.filter.length === 0) {
-                        $spec.filter = [node.data.id];
-                    } else {
-                        const filterSet = new Set($spec.filter);
-                        filterSet.add(node.data.id);
-                        $spec.filter = [...filterSet];
-                    }
-                    $spec = $spec;
-                }}>
+                on:click={filter}
+                on:keydown={filter}>
                 🔎
             </tspan>
         {/if}

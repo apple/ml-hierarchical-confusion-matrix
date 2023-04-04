@@ -23,7 +23,7 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
 
     $: confusionPromise = example.loader(example.filename);
 
-    let textarea;
+    let textarea: HTMLTextAreaElement;
 </script>
 
 <style>

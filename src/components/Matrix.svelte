@@ -20,6 +20,7 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
     import type { Entry } from '../matrix';
     import { spec } from './stores';
     import { buildMatrix } from '../confusions';
+    import type { Measure } from '../specification';
 
     // Encoding
     export let cellSize = 18;
@@ -36,7 +37,7 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
 
     $: matrix = buildMatrix($spec, confusions)
     $: hierarchy = matrix.axis;
-    $: columns = ($spec.measures ? $spec.measures.map(m => toStatistic(matrix, m)) : []) as Array<Statistic> ;
+    $: columns = ($spec.measures ? $spec.measures.map((m: Measure) => toStatistic(matrix, m)) : []) as Array<Statistic> ;
 
     $: layout = layoutClassic((n: Entry) => !$spec.collapsed.includes(n.data.id), hierarchy);
 
@@ -113,7 +114,7 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
 
     <g transform="translate({padding + axisTitle},{padding + axisTitle})">
         {#if $spec.filter?.length > 0}
-        <text class="breadcrumb" on:click={clearFilter} y="120">{'< go back'}</text>
+        <text class="breadcrumb" on:click={clearFilter} on:keydown={clearFilter} y="120">{'< go back'}</text>
         {/if}
         
         <g transform="translate(0,0)">

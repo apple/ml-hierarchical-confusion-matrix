@@ -27,7 +27,7 @@ export type Encoding = 'size' | 'color';
 
 export interface Spec extends Defaults {
     classes: Array<string>;
-    where?: Condition // TODO: Add multiple conditionals ombined using AND back in.
+    where?: Condition // TODO: Add multiple conditionals combined using AND back in.
     filter?: Array<string>; // Filters are combined using OR.
 }
 

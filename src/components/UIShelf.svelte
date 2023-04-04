@@ -53,6 +53,16 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
 </script>
 
 <style>
+    button {
+        background: none;
+        color: inherit;
+        border: none;
+        padding: 0;
+        font: inherit;
+        cursor: pointer;
+        outline: inherit;
+    }
+
     .wrapper {
         border: 1px solid #cccccc;
         border-radius: 7px;
@@ -130,15 +140,15 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
     <div>
         {#each active as d, i}
             <div class="dimension active">
-                <span class="name" on:click={() => deactivate(d)}>{d}</span>
-                <span class={i > 0 ? 'activeArrow' : 'inactiveArrow'} on:click={() => moveLeft(i)}>◁</span>
-                <span class={ i < active.length - 1 ? 'activeArrow' : 'inactiveArrow'} on:click={() => moveRight(i)}>▷</span>
+                <button class="name" on:click={() => deactivate(d)}>{d}</button>
+                <button class={i > 0 ? 'activeArrow' : 'inactiveArrow'} on:click={() => moveLeft(i)}>◁</button>
+                <button class={ i < active.length - 1 ? 'activeArrow' : 'inactiveArrow'} on:click={() => moveRight(i)}>▷</button>
             </div> 
         {/each}
         {#each inactive as d}
             {#if where?.label !== d}
                 <div class="dimension inactive">
-                    <span on:click={() => activate(d)}>{d} <span class="activate">activate</span></span>
+                    <button on:click={() => activate(d)}>{d} <span class="activate">activate</span></button>
                 </div>
             {/if}
         {/each}
@@ -163,10 +173,10 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
         </div>
         <div class="dimension active">
             <span class="name" >{where.label}</span>
-            <span on:click={() => removeWhere(0)}>×</span>
+            <button on:click={() => removeWhere(0)}>×</button>
         </div>
         <div class="chooser">
-            <select bind:this={isRef} value={where.is} on:blur={(e) => {
+            <select bind:this={isRef} value={where.is} on:blur={() => {
                 $spec.where.is = isRef.value;
                 $spec = $spec;
             }}>
@@ -177,12 +187,12 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
         </div>
         {:else} 
             {#if inactive.length > 0}
-                {#each inactive as label, i}
+                {#each inactive as label}
                 <div class="dimension inactive"> 
-                    <span on:click={() => {
+                    <button on:click={() => {
                         $spec.where = {qualifier: 'actual', label, is: options(confusions, label)[0]};
                         $spec = $spec;
-                    }}>{label}</span>
+                    }}>{label}</button>
                 </div>
                 {/each}
                 {:else}
