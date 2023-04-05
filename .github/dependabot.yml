@@ -4,13 +4,7 @@ updates:
     directory: '/'
     schedule:
       interval: monthly
-      day: sunday
-      time: '22:42'
-      timezone: PST8PDT
   - package-ecosystem: github-actions
     directory: '/'
     schedule:
       interval: monthly
-      day: sunday
-      time: '23:00'
-      timezone: PST8PDT
