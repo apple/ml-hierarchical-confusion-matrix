@@ -4,7 +4,8 @@
  * Copyright (C) 2022 Apple Inc. All Rights Reserved.
  */
 
-import { Confusion, stringify } from '../confusions';
+import {  stringify } from '../confusions';
+import type { Confusion } from '../confusions';
 import { csvParse } from 'd3-dsv';
 import { parseTagString as parse } from '../parser';
 
