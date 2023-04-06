@@ -5,8 +5,10 @@
  */
 
 import { accuracy, Matrix, precision, recall } from '../matrix';
-import { ColumnNormalization, Mapping, RowNormalization } from './mapping';
-import { Count, Probability, Statistic } from './statistics';
+import { ColumnNormalization, RowNormalization } from './mapping';
+import type { Mapping } from './mapping';
+import { Count, Probability } from './statistics';
+import type { Statistic } from './statistics';
 import type { Measure, Normalization } from '../specification';
 import { Total } from './mapping';
 
@@ -38,4 +40,5 @@ export function toMapping(
     }
 }
 
-export { nFormatter as format, Statistic } from './statistics';
+export type { Statistic } from './statistics';
+export { nFormatter as format } from './statistics';

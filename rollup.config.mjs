@@ -3,11 +3,11 @@ import commonjs from '@rollup/plugin-commonjs';
 import css from 'rollup-plugin-css-only';
 import json from '@rollup/plugin-json';
 import livereload from 'rollup-plugin-livereload';
-import pkg from './package.json';
+import pkg from './package.json' assert { type: 'json' };
 import resolve from '@rollup/plugin-node-resolve';
 import { Server } from 'http';
 import svelte from 'rollup-plugin-svelte';
-import { terser } from 'rollup-plugin-terser';
+import terser from '@rollup/plugin-terser';
 import typescript from '@rollup/plugin-typescript';
 
 const copyright = `// ${pkg.name} v${pkg.version} Copyright ${(new Date).getFullYear()} ${pkg.author.name}`;

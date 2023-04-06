@@ -5,7 +5,8 @@
  */
 
 import type { Condition, Spec } from './specification';
-import { Entry, Matrix } from './matrix';
+import { Matrix } from './matrix';
+import type { Entry } from './matrix';
 import { rollup, sum } from 'd3-array';
 import { cloneDeep } from 'lodash';
 import ndarray from 'ndarray';
