@@ -65,6 +65,7 @@ typings/
 
 # Project related files
 node_modules
+.svelte-kit
 public/bundle.*
 public/app.*
 public/confMat.*

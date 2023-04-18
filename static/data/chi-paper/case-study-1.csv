@@ -1,0 +1,196 @@
+,Ground Truth,Prediction,Count
+193,Checkbox (selected),Missing Prediction,29
+194,Checkbox (selected),Duplicate Prediction,8
+195,Checkbox (selected),Icon,39
+196,Checkbox (selected),Picture,8
+197,Checkbox (selected),Checkbox (selected),38
+198,Checkbox (selected),Checkbox (unselected),5
+199,Checkbox (selected),PageControl,0
+200,Checkbox (selected),Toggle (unselected),0
+201,Checkbox (selected),Text,0
+202,Checkbox (selected),Container,0
+203,Checkbox (selected),Dialog,0
+204,Checkbox (selected),Slider,0
+205,Checkbox (selected),TextField,0
+206,Checkbox (selected),SegmentedControl,0
+207,Checkbox (selected),Toggle (selected),0
+163,Checkbox (unselected),Checkbox (unselected),373
+164,Checkbox (unselected),Missing Prediction,67
+165,Checkbox (unselected),Duplicate Prediction,6
+166,Checkbox (unselected),Picture,23
+167,Checkbox (unselected),Icon,8
+168,Checkbox (unselected),PageControl,0
+169,Checkbox (unselected),Toggle (unselected),0
+170,Checkbox (unselected),Text,0
+171,Checkbox (unselected),Container,0
+172,Checkbox (unselected),Dialog,0
+173,Checkbox (unselected),Slider,0
+174,Checkbox (unselected),TextField,0
+175,Checkbox (unselected),Checkbox (selected),0
+176,Checkbox (unselected),SegmentedControl,0
+177,Checkbox (unselected),Toggle (selected),0
+0,Container,Container,8371
+1,Container,Picture,329
+2,Container,Missing Prediction,2419
+3,Container,Duplicate Prediction,258
+4,Container,SegmentedControl,136
+5,Container,Text,84
+6,Container,TextField,128
+7,Container,Icon,54
+8,Container,Dialog,5
+9,Container,Checkbox (unselected),1
+10,Container,Slider,1
+11,Container,PageControl,0
+12,Container,Toggle (unselected),0
+13,Container,Checkbox (selected),0
+14,Container,Toggle (selected),0
+133,Dialog,Dialog,154
+134,Dialog,Missing Prediction,83
+135,Dialog,Picture,17
+136,Dialog,Duplicate Prediction,8
+137,Dialog,Container,9
+138,Dialog,SegmentedControl,1
+139,Dialog,PageControl,0
+140,Dialog,Toggle (unselected),0
+141,Dialog,Text,0
+142,Dialog,Slider,0
+143,Dialog,Checkbox (unselected),0
+144,Dialog,Icon,0
+145,Dialog,TextField,0
+146,Dialog,Checkbox (selected),0
+147,Dialog,Toggle (selected),0
+45,Icon,Icon,17504
+46,Icon,Missing Prediction,3614
+47,Icon,Duplicate Prediction,264
+48,Icon,Text,207
+49,Icon,Picture,478
+50,Icon,Checkbox (selected),19
+51,Icon,Container,33
+52,Icon,Checkbox (unselected),19
+53,Icon,SegmentedControl,1
+54,Icon,PageControl,0
+55,Icon,Toggle (unselected),0
+56,Icon,Dialog,0
+57,Icon,Slider,0
+58,Icon,TextField,0
+59,Icon,Toggle (selected),0
+103,PageControl,Missing Prediction,132
+104,PageControl,PageControl,311
+105,PageControl,Text,10
+106,PageControl,Picture,1
+107,PageControl,Toggle (unselected),0
+108,PageControl,Container,0
+109,PageControl,Dialog,0
+110,PageControl,Slider,0
+111,PageControl,Checkbox (unselected),0
+112,PageControl,Duplicate Prediction,0
+113,PageControl,Icon,0
+114,PageControl,TextField,0
+115,PageControl,Checkbox (selected),0
+116,PageControl,SegmentedControl,0
+117,PageControl,Toggle (selected),0
+60,Picture,Icon,647
+61,Picture,Duplicate Prediction,302
+62,Picture,Picture,6302
+63,Picture,Text,240
+64,Picture,Missing Prediction,1837
+65,Picture,Container,145
+66,Picture,PageControl,2
+67,Picture,Dialog,2
+68,Picture,Toggle (unselected),1
+69,Picture,Checkbox (unselected),19
+70,Picture,Slider,3
+71,Picture,Checkbox (selected),11
+72,Picture,TextField,2
+73,Picture,SegmentedControl,0
+74,Picture,Toggle (selected),0
+88,SegmentedControl,SegmentedControl,638
+89,SegmentedControl,Missing Prediction,306
+90,SegmentedControl,Duplicate Prediction,29
+91,SegmentedControl,Container,73
+92,SegmentedControl,Icon,2
+93,SegmentedControl,Text,15
+94,SegmentedControl,Toggle (unselected),2
+95,SegmentedControl,PageControl,0
+96,SegmentedControl,Dialog,0
+97,SegmentedControl,Slider,0
+98,SegmentedControl,Checkbox (unselected),0
+99,SegmentedControl,Picture,0
+100,SegmentedControl,TextField,0
+101,SegmentedControl,Checkbox (selected),0
+102,SegmentedControl,Toggle (selected),0
+148,Slider,Missing Prediction,38
+149,Slider,Slider,72
+150,Slider,PageControl,0
+151,Slider,Toggle (unselected),0
+152,Slider,Text,0
+153,Slider,Container,0
+154,Slider,Dialog,0
+155,Slider,Checkbox (unselected),0
+156,Slider,Duplicate Prediction,0
+157,Slider,Icon,0
+158,Slider,Picture,0
+159,Slider,TextField,0
+160,Slider,Checkbox (selected),0
+161,Slider,SegmentedControl,0
+162,Slider,Toggle (selected),0
+15,Text,Text,41599
+16,Text,Missing Prediction,4973
+17,Text,Icon,222
+18,Text,Duplicate Prediction,191
+19,Text,Container,113
+20,Text,SegmentedControl,16
+21,Text,Picture,111
+22,Text,TextField,11
+23,Text,PageControl,0
+24,Text,Toggle (unselected),0
+25,Text,Dialog,0
+26,Text,Slider,0
+27,Text,Checkbox (unselected),0
+28,Text,Checkbox (selected),0
+29,Text,Toggle (selected),0
+30,TextField,Missing Prediction,231
+31,TextField,TextField,1015
+32,TextField,Container,115
+33,TextField,Text,4
+34,TextField,Duplicate Prediction,32
+35,TextField,Picture,9
+36,TextField,SegmentedControl,4
+37,TextField,Slider,1
+38,TextField,PageControl,0
+39,TextField,Toggle (unselected),0
+40,TextField,Dialog,0
+41,TextField,Checkbox (unselected),0
+42,TextField,Icon,0
+43,TextField,Checkbox (selected),0
+44,TextField,Toggle (selected),0
+178,Toggle (selected),Toggle (selected),124
+179,Toggle (selected),Missing Prediction,4
+180,Toggle (selected),Toggle (unselected),1
+181,Toggle (selected),Duplicate Prediction,2
+182,Toggle (selected),Container,2
+183,Toggle (selected),PageControl,0
+184,Toggle (selected),Text,0
+185,Toggle (selected),Dialog,0
+186,Toggle (selected),Slider,0
+187,Toggle (selected),Checkbox (unselected),0
+188,Toggle (selected),Icon,0
+189,Toggle (selected),Picture,0
+190,Toggle (selected),TextField,0
+191,Toggle (selected),Checkbox (selected),0
+192,Toggle (selected),SegmentedControl,0
+118,Toggle (unselected),Toggle (unselected),226
+119,Toggle (unselected),Missing Prediction,11
+120,Toggle (unselected),Picture,4
+121,Toggle (unselected),Container,4
+122,Toggle (unselected),Toggle (selected),1
+123,Toggle (unselected),Duplicate Prediction,1
+124,Toggle (unselected),Icon,1
+125,Toggle (unselected),PageControl,0
+126,Toggle (unselected),Text,0
+127,Toggle (unselected),Dialog,0
+128,Toggle (unselected),Slider,0
+129,Toggle (unselected),Checkbox (unselected),0
+130,Toggle (unselected),TextField,0
+131,Toggle (unselected),Checkbox (selected),0
+132,Toggle (unselected),SegmentedControl,0

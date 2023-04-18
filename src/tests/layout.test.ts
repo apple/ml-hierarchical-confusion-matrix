@@ -4,7 +4,7 @@
  * Copyright (C) 2022 Apple Inc. All Rights Reserved.
  */
 
-import { flip, layoutClassic, layoutCompact } from '../src/layout';
+import { flip, layoutClassic, layoutCompact } from '../layout';
 import { simpleTree } from './node.test';
 
 test('layoutCompactVertical', () => {

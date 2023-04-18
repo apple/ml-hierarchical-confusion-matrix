@@ -4,7 +4,7 @@
  * Copyright (C) 2022 Apple Inc. All Rights Reserved.
  */
 
-import { accuracy, precision, recall } from '../src/matrix';
+import { accuracy, precision, recall } from '../matrix';
 import { synthMatrix } from './matrix.test';
 
 // TODO: Add test cases for aggregated nodes

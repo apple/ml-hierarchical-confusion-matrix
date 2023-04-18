@@ -4,8 +4,8 @@
  * Copyright (C) 2022 Apple Inc. All Rights Reserved.
  */
 
-import { parseTagString, tokenize } from '../src/parser';
-import { Node } from '../src/node';
+import { parseTagString, tokenize } from '../parser';
+import { Node } from '../node';
 
 test('tokenize', () => {
     let input = 'aber';

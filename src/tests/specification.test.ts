@@ -4,9 +4,9 @@
  * Copyright (C) 2022 Apple Inc. All Rights Reserved.
  */
 
-import { defaults } from '../src/specification';
-import { nop } from '../src/util';
-import type { Spec } from '../src/specification';
+import { defaults } from '../specification';
+import { nop } from '../util';
+import type { Spec } from '../specification';
 
 test('One category', () => {
     const spec: Spec = {

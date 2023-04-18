@@ -4,7 +4,7 @@
  * Copyright (C) 2022 Apple Inc. All Rights Reserved.
  */
 
-import { nest, powerset } from '../src/setops';
+import { nest, powerset } from '../setops';
 
 test('Powerset', () => {
     const set = ['a', 'b', 'c'];

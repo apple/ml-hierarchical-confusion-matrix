@@ -4,9 +4,9 @@
  * Copyright (C) 2022 Apple Inc. All Rights Reserved.
  */
 
-import { buildHierarchy, dimensions, linearize, nest, paths, stringify } from '../src/confusions';
-import { Node } from '../src/node';
-import { synth } from '../src/loaders/synth';
+import { buildHierarchy, dimensions, linearize, nest, paths, stringify } from '../confusions';
+import { Node } from '../node';
+import { synth } from '../loaders/synth';
 
 test('Parse and build simple tree', () => {
     const labels = ['a:b', 'a:c'];

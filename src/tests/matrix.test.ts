@@ -4,9 +4,9 @@
  * Copyright (C) 2022 Apple Inc. All Rights Reserved.
  */
 
-import { Entry, Matrix } from '../src/matrix';
+import { Entry, Matrix } from '../matrix';
 import ndarray from 'ndarray';
-import { Node } from '../src/node';
+import { Node } from '../node';
 
 /**
  * The confusion matrix looks like this:

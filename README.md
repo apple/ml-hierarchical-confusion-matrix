@@ -194,13 +194,7 @@ yarn build
 Test:
 
 ```sh
-yarn test
-```
-
-Start:
-
-```sh
-yarn start
+yarn test:unit
 ```
 
 Dev Server:
@@ -212,7 +206,7 @@ yarn dev
 Lint & Fix:
 
 ```sh
-yarn format
+yarn lint
 ```
 
 ## Contributing

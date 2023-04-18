@@ -4,7 +4,7 @@
  * Copyright (C) 2022 Apple Inc. All Rights Reserved.
  */
 
-import { Node } from '../src/node';
+import { Node } from '../node';
 
 export function simpleTree(): Node<string> {
     const a = new Node('a');
