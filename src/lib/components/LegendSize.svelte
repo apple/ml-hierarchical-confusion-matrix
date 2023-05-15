@@ -8,7 +8,7 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
     import { format } from '../view';
     import { scaleLinear } from 'd3-scale';
 
-    export let scale = d3.scaleLinear();
+    export let scale = scaleLinear();
     export let cellSize = 10;
 
     const padding = 3;
