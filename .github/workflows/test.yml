@@ -1,20 +1,20 @@
 name: Node.js CI
 
 on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+    push:
+        branches: [main]
+    pull_request:
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+    build:
+        runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v3
-      - name: Use Node.js
-        uses: actions/setup-node@v3
-      - name: Install Node dependencies
-        run: yarn --frozen-lockfile
-      - run: yarn test
-      - run: yarn lint
+        steps:
+            - uses: actions/checkout@v3
+            - name: Use Node.js
+              uses: actions/setup-node@v3
+            - name: Install Node dependencies
+              run: yarn --frozen-lockfile
+            - run: yarn test:unit
+            - run: yarn lint
+            - run: yarn fmt

@@ -63,8 +63,12 @@ typings/
 # other weird stuff
 .DS_Store
 
+# Vite build directory
+build/
+
 # Project related files
 node_modules
+.svelte-kit
 public/bundle.*
 public/app.*
 public/confMat.*
