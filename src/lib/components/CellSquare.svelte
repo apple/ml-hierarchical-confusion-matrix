@@ -18,7 +18,7 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
     export let color = 'rgb(0,0,0)';
 
     export let cellSize = 10;
-    
+
     const minWidth = 2;
     const scale = scaleLinear().range([minWidth ** 2, cellSize ** 2]);
     $: sideLength = Math.sqrt(scale(value));

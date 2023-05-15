@@ -11,16 +11,16 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
     export let normalization;
 
     const encodingChoices = new Map([
-        ['Size', 'size'], 
+        ['Size', 'size'],
         ['Color', 'color'],
     ]);
 
     const mappingChoices = new Map([
         ['Counts', 'total'],
-        ['Row probabilities','row'],
-        ['Column probabilities', 'column']
+        ['Row probabilities', 'row'],
+        ['Column probabilities', 'column'],
     ]);
-    
+
     $: encodingRef = encoding;
     $: mappingRef = normalization;
 </script>
@@ -36,7 +36,7 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
         margin-right: 7px;
         border-radius: 5px;
     }
-    
+
     .name {
         font-weight: 600;
         font-size: 1.1em;
@@ -53,7 +53,7 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
         <span class="name">Encoding</span>
         {#each [...encodingChoices.entries()] as [name, enc]}
         <label class="opt">
-            <input type=radio on:change={e => {$spec.encoding = e.currentTarget.value; $spec = $spec}} bind:group={encodingRef} value={enc}> {name}
+            <input type=radio on:change={e => { $spec.encoding = e.currentTarget.value; $spec = $spec; }} bind:group={encodingRef} value={enc}> {name}
         </label>
         {/each}
     </div>
@@ -61,7 +61,7 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
         <span class="name">Normalization</span>
         {#each [...mappingChoices.entries()] as [name, mapping]}
         <label class="opt">
-            <input type=radio on:change={e => {$spec.normalization = e.currentTarget.value; $spec = $spec}} bind:group={mappingRef} value={mapping}> {name}
+            <input type=radio on:change={e => { $spec.normalization = e.currentTarget.value; $spec = $spec; }} bind:group={mappingRef} value={mapping}> {name}
         </label>
         {/each}
     </div>

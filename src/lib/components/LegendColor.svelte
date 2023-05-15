@@ -5,12 +5,12 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
 -->
 
 <script lang="ts">
-    import { scaleLinear } from 'd3-scale';
     import { format } from '../view';
+    import { scaleLinear } from 'd3-scale';
     import { scheme } from 'vega-scale';
 
     const interpolateColors = scheme('lighttealblue');
-    
+
     export let scale = scaleLinear();
     export let cellSize = 10;
 
@@ -42,6 +42,6 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
 
 <rect class="outline" height={cellSize} width={ticks.length * (cellSize + padding)} fill="url(#legendRampGradient)" />
 
-{#each ticks as tick,i}
+{#each ticks as tick, i}
     <text dominant-baseline="middle" class="label" y={cellSize + cellSize / 2} x={i * (cellSize + padding) + cellSize / 2}>{format(tick, 1)}</text>
 {/each}

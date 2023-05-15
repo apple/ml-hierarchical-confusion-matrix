@@ -5,14 +5,14 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
 -->
 
 <script>
-    import { scaleLinear } from 'd3-scale';
     import { format } from '../view';
+    import { scaleLinear } from 'd3-scale';
 
     export let scale = d3.scaleLinear();
     export let cellSize = 10;
 
     const padding = 3;
-    
+
     $: ticks = scale.ticks(5);
 
     // TODO: Reuse cells (once they are independent of nodes)
@@ -31,7 +31,7 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
     }
 </style>
 
-{#each ticks as tick,i}
+{#each ticks as tick, i}
     <rect
         y={(cellSize - Math.sqrt(scaleSquare(scale(tick)))) / 2}
         x={i * (cellSize + padding) + (cellSize - Math.sqrt(scaleSquare(scale(tick)))) / 2}

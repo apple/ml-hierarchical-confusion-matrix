@@ -20,7 +20,6 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
     }
 </style>
 
-
 <text y={cellSize / 2} dominant-baseline="middle" class="label">{statistic[1]}</text>
 <g transform="translate(0,{cellSize - height})">
     <rect width={columnWidth} {height} fill="#eeeeee" />

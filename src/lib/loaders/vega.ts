@@ -4,9 +4,9 @@
  * Copyright (C) 2022 Apple Inc. All Rights Reserved.
  */
 
-import { stringify } from '../confusions';
 import type { Confusion } from '../confusions';
 import { parseTagString as parse } from '../parser';
+import { stringify } from '../confusions';
 
 interface ConfusionInterface {
     reference_text: string; // eslint-disable-line camelcase

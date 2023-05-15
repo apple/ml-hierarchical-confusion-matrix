@@ -4,10 +4,10 @@
  * Copyright (C) 2022 Apple Inc. All Rights Reserved.
  */
 
-import {  stringify } from '../confusions';
 import type { Confusion } from '../confusions';
 import { csvParse } from 'd3-dsv';
 import { parseTagString as parse } from '../parser';
+import {  stringify } from '../confusions';
 
 interface ConfusionInterface {
     'Ground Truth': string;

@@ -15,7 +15,7 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
     import CellZero from './CellZero.svelte';
     import Label from './Label.svelte';
     import LegendSize from './LegendSize.svelte';
-    import LegendColor from './LegendColor.svelte'
+    import LegendColor from './LegendColor.svelte';
     import { layoutClassic } from '../layout';
     import type { Entry } from '../matrix';
     import { spec } from './stores';
@@ -35,7 +35,7 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
     // Required props
     export let confusions = null;
 
-    $: matrix = buildMatrix($spec, confusions)
+    $: matrix = buildMatrix($spec, confusions);
     $: hierarchy = matrix.axis;
     $: columns = ($spec.measures ? $spec.measures.map((m: Measure) => toStatistic(matrix, m)) : []) as Array<Statistic> ;
 
@@ -110,13 +110,12 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
 </div>
 
 <svg width={totalExtent} {height}>
-   
 
     <g transform="translate({padding + axisTitle},{padding + axisTitle})">
         {#if $spec.filter?.length > 0}
         <text class="breadcrumb" on:click={clearFilter} on:keydown={clearFilter} y="120">{'< go back'}</text>
         {/if}
-        
+
         <g transform="translate(0,0)">
             <text class="axisTitle">{$spec.normalization === 'total' ? 'Counts' : `${$spec.normalization} Probabilities`}</text>
             <g transform="translate(0,{cellSize})">
@@ -164,7 +163,7 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
                 <g
                     transform="translate({actualPos[0] * hierarchyIndent},{actualPos[1] * cellSize + cellSize / 2})">
                     {#if span > 0}
-                    <line x1="0.3em" x2="0.3em" y1={cellSize / 2} y2={span * cellSize + cellSize / 2} stroke={actual.children.find(n => $currentCell && n.data.id === $currentCell[0].data.id) ? "black" : "#cccccc"} />
+                    <line x1="0.3em" x2="0.3em" y1={cellSize / 2} y2={span * cellSize + cellSize / 2} stroke={actual.children.find(n => $currentCell && n.data.id === $currentCell[0].data.id) ? 'black' : '#cccccc'} />
                     {/if}
                     <Label node={actual} direction={0} />
                 </g>

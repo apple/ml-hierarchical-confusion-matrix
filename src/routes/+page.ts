@@ -4,7 +4,6 @@
  * Copyright (C) 2022 Apple Inc. All Rights Reserved.
  */
 import { csv, json, synth, vega, vegaCompressed } from '../lib/loaders';
-import App from './+page.svelte';
 import type { Confusion } from '../lib/confusions';
 import { defaults } from '../lib/specification';
 import type { Spec } from '../lib/specification';
@@ -106,6 +105,6 @@ const examples: Array<Example> = [
 ];
 
 /** @type {import('./$types').PageLoad} */
-export function load() {
+export function load(): { examples: Array<Example> } {
     return { examples: examples };
 }

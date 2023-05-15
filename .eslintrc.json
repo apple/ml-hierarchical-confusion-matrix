@@ -11,11 +11,6 @@
         "ecmaVersion": 2020
     },
     "rules": {
-        "jest/no-disabled-tests": "warn",
-        "jest/no-focused-tests": "error",
-        "jest/no-identical-title": "error",
-        "jest/prefer-to-have-length": "warn",
-        "jest/valid-expect": "error",
         "max-len": [
             "warn",
             {
@@ -26,10 +21,7 @@
                 "ignoreRegExpLiterals": true
             }
         ],
-        "indent": [
-            "warn",
-            4
-        ],
+        "indent": ["warn", 4],
         "no-unused-vars": [
             "warn",
             {
@@ -38,29 +30,14 @@
             }
         ],
         "no-console": ["warn", { "allow": ["warn"] }],
-        "linebreak-style": [
-            "warn",
-            "unix"
-        ],
-        "quotes": [
-            "warn",
-            "single"
-        ],
-        "semi": [
-            "warn",
-            "always"
-        ],
+        "linebreak-style": ["warn", "unix"],
+        "quotes": ["warn", "single"],
+        "semi": ["warn", "always"],
         "no-var": "warn",
         "prefer-const": "warn",
         "dot-notation": "warn",
-        "dot-location": [
-            "warn",
-            "property"
-        ],
-        "eqeqeq": [
-            "warn",
-            "smart"
-        ],
+        "dot-location": ["warn", "property"],
+        "eqeqeq": ["warn", "smart"],
         "no-implicit-coercion": "warn",
         "no-useless-return": "warn",
         "array-bracket-newline": [
@@ -69,10 +46,7 @@
                 "multiline": true
             }
         ],
-        "array-bracket-spacing": [
-            "warn",
-            "never"
-        ],
+        "array-bracket-spacing": ["warn", "never"],
         "block-spacing": "warn",
         "brace-style": [
             "warn",
@@ -81,10 +55,7 @@
                 "allowSingleLine": true
             }
         ],
-        "comma-dangle": [
-            "warn",
-            "always-multiline"
-        ],
+        "comma-dangle": ["warn", "always-multiline"],
         "comma-spacing": [
             "warn",
             {
@@ -93,18 +64,9 @@
             }
         ],
         "eol-last": "warn",
-        "func-call-spacing": [
-            "warn",
-            "never"
-        ],
-        "function-paren-newline": [
-            "warn",
-            "multiline"
-        ],
-        "implicit-arrow-linebreak": [
-            "warn",
-            "beside"
-        ],
+        "func-call-spacing": ["warn", "never"],
+        "function-paren-newline": ["warn", "multiline"],
+        "implicit-arrow-linebreak": ["warn", "beside"],
         "keyword-spacing": "warn",
         "lines-between-class-members": [
             "warn",
@@ -130,27 +92,12 @@
         "no-trailing-spaces": "warn",
         "no-unneeded-ternary": "warn",
         "no-whitespace-before-property": "warn",
-        "nonblock-statement-body-position": [
-            "warn",
-            "beside"
-        ],
-        "object-curly-spacing": [
-            "warn",
-            "always"
-        ],
-        "one-var": [
-            "warn",
-            "never"
-        ],
+        "nonblock-statement-body-position": ["warn", "beside"],
+        "object-curly-spacing": ["warn", "always"],
+        "one-var": ["warn", "never"],
         "operator-assignment": "warn",
-        "operator-linebreak": [
-            "warn",
-            "before"
-        ],
-        "padded-blocks": [
-            "warn",
-            "never"
-        ],
+        "operator-linebreak": ["warn", "before"],
+        "padded-blocks": ["warn", "never"],
         "space-before-blocks": "warn",
         "space-before-function-paren": [
             "warn",
@@ -175,31 +122,35 @@
         ],
         "camelcase": "warn"
     },
-    "plugins": [
-        "jest",
-        "json",
-        "svelte3"
-    ],
+    "plugins": ["@typescript-eslint", "json"],
     "overrides": [
         {
-            "files": [
-                "*.svelte"
-            ],
-            "processor": "svelte3/svelte3"
+            "files": ["*.svelte"],
+            "extends": ["plugin:svelte/recommended"],
+            "parser": "svelte-eslint-parser",
+            "parserOptions": {
+                "parser": "@typescript-eslint/parser"
+            }
         },
         {
-            "files": [
-                "*.ts"
+            "files": ["*.ts"],
+            "extends": [
+                "eslint:recommended",
+                "plugin:@typescript-eslint/recommended",
+                "plugin:json/recommended-with-comments"
             ],
-            "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "plugin:json/recommended-with-comments"],
             "parser": "@typescript-eslint/parser",
-            "plugins": [
-                "@typescript-eslint/eslint-plugin"
-            ],
+            "plugins": ["@typescript-eslint/eslint-plugin"],
             "rules": {
-                "@typescript-eslint/no-explicit-any": ["warn", { "ignoreRestArgs": true }],
+                "@typescript-eslint/no-explicit-any": [
+                    "warn",
+                    { "ignoreRestArgs": true }
+                ],
                 "@typescript-eslint/indent": ["warn", 4],
-                "@typescript-eslint/ban-ts-comment": ["warn", { "ts-expect-error": "allow-with-description" }],
+                "@typescript-eslint/ban-ts-comment": [
+                    "warn",
+                    { "ts-expect-error": "allow-with-description" }
+                ],
                 "@typescript-eslint/explicit-function-return-type": [
                     "warn",
                     { "allowExpressions": true }
@@ -210,7 +161,10 @@
                     "warn",
                     { "args": "all", "argsIgnorePattern": "^_" }
                 ],
-                "@typescript-eslint/array-type": ["warn", { "default": "generic" }]
+                "@typescript-eslint/array-type": [
+                    "warn",
+                    { "default": "generic" }
+                ]
             }
         }
     ]

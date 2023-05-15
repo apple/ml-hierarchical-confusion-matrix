@@ -5,8 +5,8 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
 -->
 
 <script lang="ts">
-    import { currentCell } from "./stores";
-    import { spec } from "./stores";
+    import { currentCell } from './stores';
+    import { spec } from './stores';
 
     export let node = null;
     export let truncateText = 25;

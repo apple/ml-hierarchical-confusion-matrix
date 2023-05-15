@@ -5,10 +5,10 @@
  */
 
 import type { Condition, Spec } from './specification';
-import { Matrix } from './matrix';
-import type { Entry } from './matrix';
 import { rollup, sum } from 'd3-array';
 import { cloneDeep } from 'lodash';
+import type { Entry } from './matrix';
+import { Matrix } from './matrix';
 import ndarray from 'ndarray';
 import { Node } from './node';
 import { parseTagString as parse } from './parser';

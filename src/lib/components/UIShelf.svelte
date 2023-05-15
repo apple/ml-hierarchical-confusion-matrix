@@ -6,7 +6,7 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
 
 <script lang="ts">
     import { dimensions, options } from '../confusions';
-    import type {Confusion} from '../confusions';
+    import type { Confusion } from '../confusions';
     import { spec } from './stores';
 
     export let confusions: Confusion[] = null;
@@ -18,7 +18,7 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
     }
 
     function deactivate(d) {
-        if($spec.classes.length > 1) {
+        if ($spec.classes.length > 1) {
             $spec.classes.splice($spec.classes.indexOf(d), 1);
             $spec = $spec;
         }
@@ -143,7 +143,7 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
                 <button class="name" on:click={() => deactivate(d)}>{d}</button>
                 <button class={i > 0 ? 'activeArrow' : 'inactiveArrow'} on:click={() => moveLeft(i)}>◁</button>
                 <button class={ i < active.length - 1 ? 'activeArrow' : 'inactiveArrow'} on:click={() => moveRight(i)}>▷</button>
-            </div> 
+            </div>
         {/each}
         {#each inactive as d}
             {#if where?.label !== d}
@@ -185,19 +185,19 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
             {/each}
             </select>
         </div>
-        {:else} 
+        {:else}
             {#if inactive.length > 0}
                 {#each inactive as label}
-                <div class="dimension inactive"> 
+                <div class="dimension inactive">
                     <button on:click={() => {
-                        $spec.where = {qualifier: 'actual', label, is: options(confusions, label)[0]};
+                        $spec.where = { qualifier: 'actual', label, is: options(confusions, label)[0] };
                         $spec = $spec;
                     }}>{label}</button>
                 </div>
                 {/each}
                 {:else}
                 <span class="warning">All dimensions are already in use.</span>
-            {/if} 
+            {/if}
         {/if}
     </div>
     <div class="explanation">

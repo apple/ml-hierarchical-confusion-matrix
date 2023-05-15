@@ -6,10 +6,10 @@
 
 import { accuracy, Matrix, precision, recall } from '../matrix';
 import { ColumnNormalization, RowNormalization } from './mapping';
-import type { Mapping } from './mapping';
 import { Count, Probability } from './statistics';
-import type { Statistic } from './statistics';
 import type { Measure, Normalization } from '../specification';
+import type { Mapping } from './mapping';
+import type { Statistic } from './statistics';
 import { Total } from './mapping';
 
 export function toStatistic(matrix: Matrix, measure: Measure): Statistic {

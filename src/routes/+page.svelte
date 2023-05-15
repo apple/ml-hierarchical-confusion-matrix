@@ -5,14 +5,14 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
 -->
 
 <script lang="ts">
-    import { spec } from '../lib/components/stores';
     import { cloneDeep } from 'lodash';
     import MatrixWithUI from '../lib/components/MatrixWithUI.svelte';
-    import { version } from '$app/environment'
+    import { spec } from '../lib/components/stores';
+    import { version } from '$app/environment';
 
     /** @type {import('./$types').PageData} */
     export let data;
-    let examples = data.examples;
+    const examples = data.examples;
     let example = examples[0];
 
     let specVisible = false;
@@ -46,7 +46,7 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
         font-size: 1.4em;
         font-weight: 600;
     }
-    
+
     .fixed-header .container {
         height: 100%;
     }
@@ -164,7 +164,6 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
             <span class="title">Specification</span><span class="desc">All the configuration and state of the confusion matrix is stored in an easily shareable JSON format. Changing values in the textarea updates the visualization.</span>
             <button on:click={() => {
                 $spec = JSON.parse(textarea.value);
-                console.log($spec);
             }}>Update</button>
         </div>
     </div>

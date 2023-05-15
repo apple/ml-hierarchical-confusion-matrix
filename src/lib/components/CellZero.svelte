@@ -12,7 +12,7 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
 
     export let actual = null;
     export let predict = null;
-    
+
     export let cellSize = 10;
 
     function mouseover() {
