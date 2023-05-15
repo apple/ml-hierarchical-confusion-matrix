@@ -36,7 +36,7 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
         $spec = $spec;
     }
 
-    function removeWhere(i) {
+    function removeWhere() {
         $spec.where = undefined;
         $spec = $spec;
     }
@@ -93,7 +93,7 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
                 <select
                     bind:this={qualifierRef}
                     value={where.qualifier}
-                    on:blur={(e) => {
+                    on:blur={(_) => {
                         $spec.where.qualifier = qualifierRef.value;
                         $spec = $spec;
                     }}
