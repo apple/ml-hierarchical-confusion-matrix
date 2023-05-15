@@ -4,7 +4,7 @@
  * Copyright (C) 2022 Apple Inc. All Rights Reserved.
  */
 
-import { expect, test } from 'vitest'
+import { expect, test } from 'vitest';
 import { nest, powerset } from '../setops';
 
 test('Powerset', () => {

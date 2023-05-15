@@ -4,7 +4,7 @@
  * Copyright (C) 2022 Apple Inc. All Rights Reserved.
  */
 
-import { test } from 'vitest'
+import { test } from 'vitest';
 import { defaults } from '../specification';
 import { nop } from '../util';
 import type { Spec } from '../specification';

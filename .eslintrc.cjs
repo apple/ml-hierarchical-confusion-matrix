@@ -28,12 +28,12 @@ module.exports = {
         },
     ],
     rules: {
-        "@typescript-eslint/no-unused-vars": [
-            "warn",
+        '@typescript-eslint/no-unused-vars': [
+            'warn',
             {
-                "args": "all",
-                "argsIgnorePattern": "^_"
-            }
-        ]
-    }
+                args: 'all',
+                argsIgnorePattern: '^_',
+            },
+        ],
+    },
 };
