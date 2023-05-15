@@ -4,6 +4,7 @@
  * Copyright (C) 2022 Apple Inc. All Rights Reserved.
  */
 
+import { expect, test } from 'vitest';
 import { Entry, Matrix } from '../matrix';
 import ndarray from 'ndarray';
 import { Node } from '../node';

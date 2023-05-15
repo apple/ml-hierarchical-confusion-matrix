@@ -4,6 +4,7 @@
  * Copyright (C) 2022 Apple Inc. All Rights Reserved.
  */
 
+import { expect, test } from 'vitest'
 import { flip, layoutClassic, layoutCompact } from '../layout';
 import { simpleTree } from './node.test';
 

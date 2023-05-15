@@ -4,6 +4,7 @@
  * Copyright (C) 2022 Apple Inc. All Rights Reserved.
  */
 
+import { expect, test } from 'vitest'
 import { buildHierarchy, dimensions, linearize, nest, paths, stringify } from '../confusions';
 import { Node } from '../node';
 import { synth } from '../loaders/synth';
