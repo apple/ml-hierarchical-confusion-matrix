@@ -9,8 +9,8 @@ import { scaleLinear } from 'd3-scale';
 import type { ScaleLinear } from 'd3-scale';
 
 export interface Mapping {
-    value(actual: Entry, observed: Entry): number,
-    scale(): ScaleLinear<number, number>,
+    value(actual: Entry, observed: Entry): number;
+    scale(): ScaleLinear<number, number>;
 }
 
 export class Total {

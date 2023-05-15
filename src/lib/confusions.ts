@@ -48,13 +48,13 @@ export function paths(node: Node<string>): Set<string> {
     const result: Set<string> = new Set();
     const curr: Array<string> = [];
     node.fullorder(
-        n => curr.push(n.data),
-        n => {
+        (n) => curr.push(n.data),
+        (n) => {
             if (n.isLeaf()) {
                 result.add(curr.join(':'));
             }
             curr.pop();
-        },
+        }
     );
     return result;
 }
@@ -62,11 +62,11 @@ export function paths(node: Node<string>): Set<string> {
 export function options(confusions: Array<Confusion>, label: string): Array<string> {
     const options: Set<string> = new Set();
     for (const { actual, observed } of confusions) {
-        const foundA = actual.find(l => topLevel(l) === label);
+        const foundA = actual.find((l) => topLevel(l) === label);
         if (foundA) {
             options.add(foundA);
         }
-        const foundB = observed.find(l => topLevel(l) === label);
+        const foundB = observed.find((l) => topLevel(l) === label);
         if (foundB) {
             options.add(foundB);
         }
@@ -77,15 +77,15 @@ export function options(confusions: Array<Confusion>, label: string): Array<stri
 function addMissingLabels(confusions: Array<Confusion>): void {
     const labels = new Set<string>();
     for (const { actual, observed } of confusions) {
-        actual.forEach(p => labels.add(topLevel(p)));
-        observed.forEach(p => labels.add(topLevel(p)));
+        actual.forEach((p) => labels.add(topLevel(p)));
+        observed.forEach((p) => labels.add(topLevel(p)));
     }
     for (const { actual, observed } of confusions) {
         for (const l of labels) {
-            if (!actual.find(c => topLevel(c) === l)) {
+            if (!actual.find((c) => topLevel(c) === l)) {
                 actual.push(`${l}:none`);
             }
-            if (!observed.find(c => topLevel(c) === l)) {
+            if (!observed.find((c) => topLevel(c) === l)) {
                 observed.push(`${l}:none`);
             }
         }
@@ -93,40 +93,39 @@ function addMissingLabels(confusions: Array<Confusion>): void {
 }
 
 function hasPathFromRoot(full: string, sub: string): boolean {
-    return full.includes(`${sub}:`) || (full === sub);
+    return full.includes(`${sub}:`) || full === sub;
 }
 
-function filter(
-    confusions: Array<Confusion>,
-    filters: Array<string>,
-): Array<Confusion> {
-    return confusions.filter(c => {
-        return filters.some(s => c.actual.some(p => hasPathFromRoot(p, s)))
-            && filters.some(s => c.actual.some(p => hasPathFromRoot(p, s)));
+function filter(confusions: Array<Confusion>, filters: Array<string>): Array<Confusion> {
+    return confusions.filter((c) => {
+        return (
+            filters.some((s) => c.actual.some((p) => hasPathFromRoot(p, s))) &&
+            filters.some((s) => c.actual.some((p) => hasPathFromRoot(p, s)))
+        );
     });
 }
 
 function condition(confusions: Array<Confusion>, cond: Condition): Array<Confusion> {
-    const newConfs = confusions.filter(c => c[cond.qualifier].some(l => l.includes(cond.is)));
+    const newConfs = confusions.filter((c) => c[cond.qualifier].some((l) => l.includes(cond.is)));
     for (const c of newConfs) {
-        c[cond.qualifier] = c[cond.qualifier].filter(l => !l.includes(cond.label));
+        c[cond.qualifier] = c[cond.qualifier].filter((l) => !l.includes(cond.label));
     }
-    return newConfs.filter(c => c.actual.length !== 0 && c.observed.length !== 0);
+    return newConfs.filter((c) => c.actual.length !== 0 && c.observed.length !== 0);
 }
 
 function marginalize(confusions: Array<Confusion>, keep: string): Map<string, Map<string, number>> {
     const mmap: Map<string, Map<string, number>> = rollup(
         confusions,
-        v => sum(v, d => d.count),
-        (d: Confusion) => d.actual.find(p => topLevel(p) === keep) ?? 'none',
-        (d: Confusion) => d.observed.find(p => topLevel(p) === keep) ?? 'none',
+        (v) => sum(v, (d) => d.count),
+        (d: Confusion) => d.actual.find((p) => topLevel(p) === keep) ?? 'none',
+        (d: Confusion) => d.observed.find((p) => topLevel(p) === keep) ?? 'none'
     );
     return mmap;
 }
 
 export function nest(paths: Array<Path>, parent: string, sub: string): void {
-    const parentIndex = paths.findIndex(p => topLevel(p) === parent);
-    const subIndex = paths.findIndex(p => topLevel(p) === sub);
+    const parentIndex = paths.findIndex((p) => topLevel(p) === parent);
+    const subIndex = paths.findIndex((p) => topLevel(p) === sub);
     if (subIndex > -1) {
         paths[parentIndex] = paths[parentIndex].concat(`:${paths[subIndex]}`);
         paths.splice(subIndex, 1);
@@ -135,30 +134,33 @@ export function nest(paths: Array<Path>, parent: string, sub: string): void {
 
 export function linearize(paths: Array<Path>): Array<Path> {
     const root = new Node<string>('root');
-    paths.forEach(p => parse(p).forEach(l => root.merge(l)));
+    paths.forEach((p) => parse(p).forEach((l) => root.merge(l)));
     for (const label of root.children) {
-        label.preorder(n => {
+        label.preorder((n) => {
             if (n.children.length > 1) {
                 n.children = [
-                    new Node(`{${n.leaves()
-                        .map(c => c.data)
-                        .join(',')}}`),
+                    new Node(
+                        `{${n
+                            .leaves()
+                            .map((c) => c.data)
+                            .join(',')}}`
+                    ),
                 ];
             }
         });
     }
-    return root.children.map(c => stringify(c));
+    return root.children.map((c) => stringify(c));
 }
 
 export function stringify(choices: Node<string>): string {
     const result = [];
-    choices.preorder(n => result.push(n.data));
+    choices.preorder((n) => result.push(n.data));
     return result.join(':');
 }
 
 // TODO: Could become part of `Node` as a `pruneWith` function.
 export function prune(root: Entry): void {
-    root.postorder(n => {
+    root.postorder((n) => {
         if (n.children.length === 1 && n.children[0].isLeaf()) {
             n.data.name = `${n.data.name}:${n.children[0].data.name}`;
             n.children = [];
@@ -168,7 +170,7 @@ export function prune(root: Entry): void {
 
 // TODO: Don't export this and write test for the complete pipeline.
 export function buildHierarchy(labels: Array<string>): Entry {
-    const paths = labels.map(str => {
+    const paths = labels.map((str) => {
         const levels = str.split(':');
         const tl = new Node({ name: levels[0], id: levels[0], start: 0, end: 0 });
         let curr = tl;
@@ -187,7 +189,7 @@ export function buildHierarchy(labels: Array<string>): Entry {
 
     const root = paths.reduce(
         (acc, p) => acc.merge(p, (a, b) => a.data.id === b.data.id),
-        new Node({ name: 'root', id: 'root', start: 0, end: 0 }),
+        new Node({ name: 'root', id: 'root', start: 0, end: 0 })
     );
 
     return addRangeIndex(root);
@@ -195,7 +197,7 @@ export function buildHierarchy(labels: Array<string>): Entry {
 
 export function addRangeIndex(root: Entry): Entry {
     let leafCounter = 0;
-    root.postorder(n => {
+    root.postorder((n) => {
         if (n.isLeaf()) {
             const range = { start: leafCounter, end: leafCounter + 1 };
             n.data = { ...n.data, ...range };

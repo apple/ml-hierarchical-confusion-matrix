@@ -8,19 +8,9 @@ import type { Confusion } from '../confusions';
 import { powerset } from '../setops';
 
 function allChoices(): Array<Set<string>> {
-    const vehicles = [
-        'vehicle:motorized:car',
-        'vehicle:motorized:motorcycle',
-        'vehicle:airplane',
-    ];
-    const states = [
-        'state:parked',
-        'state:moving',
-    ];
-    const animals = [
-        'animal:flying:bird',
-        'animal:walking:cat',
-    ];
+    const vehicles = ['vehicle:motorized:car', 'vehicle:motorized:motorcycle', 'vehicle:airplane'];
+    const states = ['state:parked', 'state:moving'];
+    const animals = ['animal:flying:bird', 'animal:walking:cat'];
 
     return powerset([...vehicles, ...states, ...animals]);
 }

@@ -33,10 +33,7 @@ test('parseSinglePath', () => {
 
 test('parseMulti', () => {
     const input = '[a:b,c:d]';
-    const result = [
-        new Node('a', new Node('b')),
-        new Node('c', new Node('d')),
-    ];
+    const result = [new Node('a', new Node('b')), new Node('c', new Node('d'))];
     expect(parseTagString(input)).toStrictEqual(result);
 });
 

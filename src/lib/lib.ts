@@ -11,11 +11,7 @@ import MatrixWithUI from './components/MatrixWithUI.svelte';
 import type { Spec } from './specification';
 import { spec as specStore } from './components/stores.js';
 
-export function embed(
-    id: string,
-    spec: Spec,
-    confusions: Array<Confusion>,
-): void {
+export function embed(id: string, spec: Spec, confusions: Array<Confusion>): void {
     const ref = document.getElementById(id);
     if (!ref) {
         console.warn(`Could not find container "${id}"`);
@@ -29,11 +25,7 @@ export function embed(
     });
 }
 
-export function embedElement(
-    element: HTMLElement,
-    spec: Spec,
-    confusions: Array<Confusion>,
-): void {
+export function embedElement(element: HTMLElement, spec: Spec, confusions: Array<Confusion>): void {
     specStore.set({ ...defaults, ...spec });
 
     new MatrixWithUI({
@@ -42,11 +34,7 @@ export function embedElement(
     });
 }
 
-export function embedWithoutUI(
-    id: string,
-    spec: Spec,
-    confusions: Array<Confusion>,
-): void {
+export function embedWithoutUI(id: string, spec: Spec, confusions: Array<Confusion>): void {
     const ref = document.getElementById(id);
     if (!ref) {
         console.warn(`Could not find container "${id}"`);
@@ -63,7 +51,7 @@ export function embedWithoutUI(
 export function embedElementWithoutUI(
     element: HTMLElement,
     spec: Spec,
-    confusions: Array<Confusion>,
+    confusions: Array<Confusion>
 ): void {
     specStore.set({ ...defaults, ...spec });
 

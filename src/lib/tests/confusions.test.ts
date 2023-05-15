@@ -13,7 +13,10 @@ test('Parse and build simple tree', () => {
     const root = buildHierarchy(labels);
 
     let result = '';
-    root.fullorder(n => result += n.data.name, n => result += n.data.name);
+    root.fullorder(
+        (n) => (result += n.data.name),
+        (n) => (result += n.data.name)
+    );
     expect(result).toBe('rootabbccaroot');
 });
 
@@ -39,14 +42,6 @@ test('Extract dimensions', () => {
 });
 
 test('Extract path', () => {
-    const root = new Node(
-        'a',
-        new Node(
-            'b',
-            new Node('c'),
-            new Node('d'),
-        ),
-        new Node('e'),
-    );
+    const root = new Node('a', new Node('b', new Node('c'), new Node('d')), new Node('e'));
     expect(paths(root)).toStrictEqual(new Set(['a:b:c', 'a:b:d', 'a:e']));
 });

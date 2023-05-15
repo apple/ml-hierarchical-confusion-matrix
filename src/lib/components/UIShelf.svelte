@@ -43,7 +43,7 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
 
     const dims = [...dimensions(confusions)];
     $: active = $spec.classes;
-    $: inactive = dims.filter(d => !active.includes(d));
+    $: inactive = dims.filter((d) => !active.includes(d));
     $: where = $spec.where;
 
     let qualifierRef;
@@ -51,6 +51,99 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
 
     // TODO: Use components with Svelte's `slots` mechanism to clean this up!
 </script>
+
+<h3>Dimensions</h3>
+<div class="wrapper">
+    <div>
+        {#each active as d, i}
+            <div class="dimension active">
+                <button class="name" on:click={() => deactivate(d)}>{d}</button>
+                <button class={i > 0 ? 'activeArrow' : 'inactiveArrow'} on:click={() => moveLeft(i)}
+                    >◁</button
+                >
+                <button
+                    class={i < active.length - 1 ? 'activeArrow' : 'inactiveArrow'}
+                    on:click={() => moveRight(i)}>▷</button
+                >
+            </div>
+        {/each}
+        {#each inactive as d}
+            {#if where?.label !== d}
+                <div class="dimension inactive">
+                    <button on:click={() => activate(d)}
+                        >{d} <span class="activate">activate</span></button
+                    >
+                </div>
+            {/if}
+        {/each}
+    </div>
+    <div class="explanation">
+        <span class="title">Shelf</span>
+        <span class="desc"
+            >Enable and disable different dimensions of the data. The order of dimension defines the
+            nesting level.</span
+        >
+    </div>
+</div>
+
+<div class="wrapper">
+    <div>
+        {#if where}
+            <div class="chooser">
+                <select
+                    bind:this={qualifierRef}
+                    value={where.qualifier}
+                    on:blur={(e) => {
+                        $spec.where.qualifier = qualifierRef.value;
+                        $spec = $spec;
+                    }}
+                >
+                    <option>actual</option>
+                    <option>observed</option>
+                </select>
+            </div>
+            <div class="dimension active">
+                <span class="name">{where.label}</span>
+                <button on:click={() => removeWhere(0)}>×</button>
+            </div>
+            <div class="chooser">
+                <select
+                    bind:this={isRef}
+                    value={where.is}
+                    on:blur={() => {
+                        $spec.where.is = isRef.value;
+                        $spec = $spec;
+                    }}
+                >
+                    {#each options(confusions, where.label) as opt}
+                        <option>{opt}</option>
+                    {/each}
+                </select>
+            </div>
+        {:else if inactive.length > 0}
+            {#each inactive as label}
+                <div class="dimension inactive">
+                    <button
+                        on:click={() => {
+                            $spec.where = {
+                                qualifier: 'actual',
+                                label,
+                                is: options(confusions, label)[0],
+                            };
+                            $spec = $spec;
+                        }}>{label}</button
+                    >
+                </div>
+            {/each}
+        {:else}
+            <span class="warning">All dimensions are already in use.</span>
+        {/if}
+    </div>
+    <div class="explanation">
+        <span class="title">Where</span>
+        <span class="desc">Condition the confusion matrix on the value of a given label.</span>
+    </div>
+</div>
 
 <style>
     button {
@@ -134,74 +227,3 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
         color: #888888;
     }
 </style>
-
-<h3>Dimensions</h3>
-<div class="wrapper">
-    <div>
-        {#each active as d, i}
-            <div class="dimension active">
-                <button class="name" on:click={() => deactivate(d)}>{d}</button>
-                <button class={i > 0 ? 'activeArrow' : 'inactiveArrow'} on:click={() => moveLeft(i)}>◁</button>
-                <button class={ i < active.length - 1 ? 'activeArrow' : 'inactiveArrow'} on:click={() => moveRight(i)}>▷</button>
-            </div>
-        {/each}
-        {#each inactive as d}
-            {#if where?.label !== d}
-                <div class="dimension inactive">
-                    <button on:click={() => activate(d)}>{d} <span class="activate">activate</span></button>
-                </div>
-            {/if}
-        {/each}
-    </div>
-    <div class="explanation">
-        <span class="title">Shelf</span>
-        <span class="desc">Enable and disable different dimensions of the data. The order of dimension defines the nesting level.</span>
-    </div>
-</div>
-
-<div class="wrapper">
-    <div>
-        {#if where}
-        <div class="chooser">
-            <select bind:this={qualifierRef} value={where.qualifier} on:blur={(e) => {
-                $spec.where.qualifier = qualifierRef.value;
-                $spec = $spec;
-            }}>
-            <option>actual</option>
-            <option>observed</option>
-        </select>
-        </div>
-        <div class="dimension active">
-            <span class="name" >{where.label}</span>
-            <button on:click={() => removeWhere(0)}>×</button>
-        </div>
-        <div class="chooser">
-            <select bind:this={isRef} value={where.is} on:blur={() => {
-                $spec.where.is = isRef.value;
-                $spec = $spec;
-            }}>
-            {#each options(confusions, where.label) as opt}
-            <option>{opt}</option>
-            {/each}
-            </select>
-        </div>
-        {:else}
-            {#if inactive.length > 0}
-                {#each inactive as label}
-                <div class="dimension inactive">
-                    <button on:click={() => {
-                        $spec.where = { qualifier: 'actual', label, is: options(confusions, label)[0] };
-                        $spec = $spec;
-                    }}>{label}</button>
-                </div>
-                {/each}
-                {:else}
-                <span class="warning">All dimensions are already in use.</span>
-            {/if}
-        {/if}
-    </div>
-    <div class="explanation">
-        <span class="title">Where</span>
-        <span class="desc">Condition the confusion matrix on the value of a given label.</span>
-    </div>
-</div>

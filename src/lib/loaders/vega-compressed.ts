@@ -20,9 +20,11 @@ export async function vegaCompressed(filename: string): Promise<Array<Confusion>
     const json = await response.json();
     const data = json.data.values;
 
-    return data.map((d: ConfusionInterface): Confusion => ({
-        actual: parse(d.rt).map(l => stringify(l)),
-        observed: parse(d.at).map(l => stringify(l)),
-        count: d.oc,
-    }));
+    return data.map(
+        (d: ConfusionInterface): Confusion => ({
+            actual: parse(d.rt).map((l) => stringify(l)),
+            observed: parse(d.at).map((l) => stringify(l)),
+            count: d.oc,
+        })
+    );
 }

@@ -7,27 +7,28 @@
 // TODO: Support more complex queries later on.
 export interface Condition {
     qualifier: 'actual' | 'observed';
-    label: string,
-    is: string,
+    label: string;
+    is: string;
 }
 
-export type Measure = 'count'
-| 'precision'
-| 'recall'
-| 'accuracy'
-| 'countActual'
-| 'countObserved'
-| 'truePositives'
-| 'trueNegatives'
-| 'falsePositives'
-| 'falseNegatives';
+export type Measure =
+    | 'count'
+    | 'precision'
+    | 'recall'
+    | 'accuracy'
+    | 'countActual'
+    | 'countObserved'
+    | 'truePositives'
+    | 'trueNegatives'
+    | 'falsePositives'
+    | 'falseNegatives';
 
 export type Normalization = 'total' | 'row' | 'column';
 export type Encoding = 'size' | 'color';
 
 export interface Spec extends Defaults {
     classes: Array<string>;
-    where?: Condition // TODO: Add multiple conditionals combined using AND back in.
+    where?: Condition; // TODO: Add multiple conditionals combined using AND back in.
     filter?: Array<string>; // Filters are combined using OR.
 }
 

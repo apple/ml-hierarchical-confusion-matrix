@@ -42,9 +42,7 @@ export function parseTagString(str: string): Array<Node<string>> {
     }
 
     function parsePath(): Array<Node<string>> {
-        return parseCategoryColon()
-            ?? parseMulti()
-            ?? parseEntity();
+        return parseCategoryColon() ?? parseMulti() ?? parseEntity();
     }
 
     function parseText(): string {
@@ -83,8 +81,7 @@ export function parseTagString(str: string): Array<Node<string>> {
     }
 
     function parseList(): Array<Node<string>> {
-        return parseListComma()
-            ?? parsePath();
+        return parseListComma() ?? parsePath();
     }
 
     return parsePath();
@@ -99,22 +96,35 @@ export function tokenize(str: string): Array<string> {
     while (i < str.length) {
         switch (str.charAt(i)) {
             case ':':
-                if (curr !== '') { tokens.push(curr); curr = ''; }
+                if (curr !== '') {
+                    tokens.push(curr);
+                    curr = '';
+                }
                 tokens.push(str.charAt(i));
                 break;
             case ',':
-                if (curr !== '') { tokens.push(curr); curr = ''; }
+                if (curr !== '') {
+                    tokens.push(curr);
+                    curr = '';
+                }
                 tokens.push(str.charAt(i));
                 break;
             case '[':
-                if (curr !== '') { tokens.push(curr); curr = ''; }
+                if (curr !== '') {
+                    tokens.push(curr);
+                    curr = '';
+                }
                 tokens.push(str.charAt(i));
                 break;
             case ']':
-                if (curr !== '') { tokens.push(curr); curr = ''; }
+                if (curr !== '') {
+                    tokens.push(curr);
+                    curr = '';
+                }
                 tokens.push(str.charAt(i));
                 break;
-            default: curr += str.charAt(i);
+            default:
+                curr += str.charAt(i);
         }
         i++;
     }

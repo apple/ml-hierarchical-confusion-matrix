@@ -13,15 +13,15 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
     $: nonNanValue = Number.isNaN(statistic[0]) ? 0 : statistic[0];
 </script>
 
+<text y={cellSize / 2} dominant-baseline="middle" class="label">{statistic[1]}</text>
+<g transform="translate(0,{cellSize - height})">
+    <rect width={columnWidth} {height} fill="#eeeeee" />
+    <rect width={nonNanValue * columnWidth} height={3} fill="#0066cc" />
+</g>
+
 <style>
     .label {
         font-size: 10px;
         fill: #888888;
     }
 </style>
-
-<text y={cellSize / 2} dominant-baseline="middle" class="label">{statistic[1]}</text>
-<g transform="translate(0,{cellSize - height})">
-    <rect width={columnWidth} {height} fill="#eeeeee" />
-    <rect width={nonNanValue * columnWidth} height={3} fill="#0066cc" />
-</g>

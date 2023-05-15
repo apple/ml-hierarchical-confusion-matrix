@@ -22,8 +22,8 @@ export async function vega(filename: string): Promise<Array<Confusion>> {
 
     return data.map((d: ConfusionInterface): Confusion => {
         return {
-            actual: parse(d.reference_text).map(l => stringify(l)),
-            observed: parse(d.annotation_text).map(l => stringify(l)),
+            actual: parse(d.reference_text).map((l) => stringify(l)),
+            observed: parse(d.annotation_text).map((l) => stringify(l)),
             count: d.occurrence,
         };
     });

@@ -25,6 +25,43 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
     $: mappingRef = normalization;
 </script>
 
+<div class="wrapper">
+    <div class="options">
+        <span class="name">Encoding</span>
+        {#each [...encodingChoices.entries()] as [name, enc]}
+            <label class="opt">
+                <input
+                    type="radio"
+                    on:change={(e) => {
+                        $spec.encoding = e.currentTarget.value;
+                        $spec = $spec;
+                    }}
+                    bind:group={encodingRef}
+                    value={enc}
+                />
+                {name}
+            </label>
+        {/each}
+    </div>
+    <div class="options">
+        <span class="name">Normalization</span>
+        {#each [...mappingChoices.entries()] as [name, mapping]}
+            <label class="opt">
+                <input
+                    type="radio"
+                    on:change={(e) => {
+                        $spec.normalization = e.currentTarget.value;
+                        $spec = $spec;
+                    }}
+                    bind:group={mappingRef}
+                    value={mapping}
+                />
+                {name}
+            </label>
+        {/each}
+    </div>
+</div>
+
 <style>
     .wrapper {
         display: flex;
@@ -47,22 +84,3 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
         margin-right: 7px;
     }
 </style>
-
-<div class="wrapper">
-    <div class="options">
-        <span class="name">Encoding</span>
-        {#each [...encodingChoices.entries()] as [name, enc]}
-        <label class="opt">
-            <input type=radio on:change={e => { $spec.encoding = e.currentTarget.value; $spec = $spec; }} bind:group={encodingRef} value={enc}> {name}
-        </label>
-        {/each}
-    </div>
-    <div class="options">
-        <span class="name">Normalization</span>
-        {#each [...mappingChoices.entries()] as [name, mapping]}
-        <label class="opt">
-            <input type=radio on:change={e => { $spec.normalization = e.currentTarget.value; $spec = $spec; }} bind:group={mappingRef} value={mapping}> {name}
-        </label>
-        {/each}
-    </div>
-</div>

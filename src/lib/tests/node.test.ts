@@ -23,7 +23,10 @@ export function simpleTree(): Node<string> {
 
 export function walk(node: Node<string>): string {
     let result = '';
-    node.fullorder(n => result += n.data, n => result += n.data);
+    node.fullorder(
+        (n) => (result += n.data),
+        (n) => (result += n.data)
+    );
     return result;
 }
 
@@ -36,20 +39,24 @@ test('fullorderIf', () => {
     const order = 'abeeffbccdda';
     let walk = '';
     const collapsed = new Set('d');
-    simpleTree().fullorder(n => walk += n.data, n => walk += n.data, n => !collapsed.has(n.data));
+    simpleTree().fullorder(
+        (n) => (walk += n.data),
+        (n) => (walk += n.data),
+        (n) => !collapsed.has(n.data)
+    );
     expect(walk).toBe(order);
 });
 
 test('leaves', () => {
     let walk = '';
-    simpleTree().leaves()
-        .map(n => walk += n.data);
+    simpleTree()
+        .leaves()
+        .map((n) => (walk += n.data));
     expect(walk).toBe('efcgh');
 
     const root = new Node('a');
-    walk  = '';
-    root.leaves()
-        .map(n => walk += n.data);
+    walk = '';
+    root.leaves().map((n) => (walk += n.data));
     expect(walk).toBe('a');
 });
 
@@ -57,8 +64,9 @@ test('leavesIf', () => {
     const order = 'efcd';
     let walk = '';
     const collapsed = new Set('d');
-    simpleTree().leaves(n => !collapsed.has(n.data))
-        .map(n => walk += n.data);
+    simpleTree()
+        .leaves((n) => !collapsed.has(n.data))
+        .map((n) => (walk += n.data));
     expect(walk).toBe(order);
 });
 
@@ -70,14 +78,7 @@ test('merge one level', () => {
 });
 
 test('hasPath', () => {
-    const a = new Node(
-        'a',
-        new Node('b'),
-        new Node(
-            'c',
-            new Node('d'),
-        ),
-    );
+    const a = new Node('a', new Node('b'), new Node('c', new Node('d')));
 
     expect(a.has(new Node('b'))).toBe(true);
     expect(a.has(new Node('d'))).toBe(false);
@@ -87,14 +88,7 @@ test('hasPath', () => {
 });
 
 test('remove', () => {
-    const a = new Node(
-        'a',
-        new Node('b'),
-        new Node(
-            'c',
-            new Node('d'),
-        ),
-    );
+    const a = new Node('a', new Node('b'), new Node('c', new Node('d')));
 
     const removed = a.remove(new Node('c'));
     expect(removed).toStrictEqual(new Node('c', new Node('d')));
@@ -106,14 +100,7 @@ test('remove', () => {
 });
 
 test('find', () => {
-    const a = new Node(
-        'a',
-        new Node('b'),
-        new Node(
-            'c',
-            new Node('d'),
-        ),
-    );
+    const a = new Node('a', new Node('b'), new Node('c', new Node('d')));
 
     const match = a.find(new Node('c'));
     expect(match).toStrictEqual(new Node('c', new Node('d')));

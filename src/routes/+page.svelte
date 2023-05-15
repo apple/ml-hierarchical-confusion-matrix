@@ -25,6 +25,64 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
     let textarea: HTMLTextAreaElement;
 </script>
 
+<div class="fixed-header">
+    <div class="container">
+        <nav>
+            <div class="nav-brand">
+                Neo: Hierarchical Confusion Matrix<small class="version">Version {version}</small>
+            </div>
+            <ul>
+                <li>
+                    Dataset:
+                    <select bind:value={example}>
+                        {#each examples as ex}
+                            <option value={ex}>{ex.description}</option>
+                        {/each}
+                    </select>
+                </li>
+                <li>
+                    {#if specVisible}
+                        <!-- svelte-ignore a11y-invalid-attribute -->
+                        <a href="#" on:click={() => (specVisible = !specVisible)}>Specification</a>
+                    {:else}
+                        <!-- svelte-ignore a11y-invalid-attribute -->
+                        <a href="#" on:click={() => (specVisible = !specVisible)}>Specification</a>
+                    {/if}
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<div class="container">
+    {#if specVisible}
+        <div class="specBox">
+            <textarea rows="20" bind:this={textarea}>{JSON.stringify($spec, undefined, 4)}</textarea
+            >
+            <div class="specDesc">
+                <span class="title">Specification</span><span class="desc"
+                    >All the configuration and state of the confusion matrix is stored in an easily
+                    shareable JSON format. Changing values in the textarea updates the
+                    visualization.</span
+                >
+                <button
+                    on:click={() => {
+                        $spec = JSON.parse(textarea.value);
+                    }}>Update</button
+                >
+            </div>
+        </div>
+    {/if}
+
+    {#await confusionPromise}
+        <p>...waiting</p>
+    {:then confusions}
+        <MatrixWithUI {confusions} />
+    {:catch error}
+        <p style="color: red">{error.message}</p>
+    {/await}
+</div>
+
 <style>
     .fixed-header {
         top: 0;
@@ -128,52 +186,3 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
         font-size: 0.8em;
     }
 </style>
-
-<div class="fixed-header">
-    <div class="container">
-        <nav>
-            <div class="nav-brand">Neo: Hierarchical Confusion Matrix<small class="version">Version { version }</small></div>
-            <ul>
-                <li>
-                    Dataset:
-                    <select bind:value={example}>
-                        {#each examples as ex}
-                            <option value={ex}>{ex.description}</option>
-                        {/each}
-                    </select>
-                </li>
-                <li>
-                    {#if specVisible}
-                        <!-- svelte-ignore a11y-invalid-attribute -->
-                        <a href="#" on:click={() => specVisible = !specVisible}>Specification</a>
-                    {:else}
-                        <!-- svelte-ignore a11y-invalid-attribute -->
-                        <a href="#" on:click={() => specVisible = !specVisible}>Specification</a>
-                    {/if}
-                </li>
-            </ul>
-        </nav>
-    </div>
-</div>
-
-<div class="container">
-    {#if specVisible}
-    <div class="specBox">
-        <textarea rows="20" bind:this={textarea}>{JSON.stringify($spec, undefined, 4)}</textarea>
-        <div class="specDesc">
-            <span class="title">Specification</span><span class="desc">All the configuration and state of the confusion matrix is stored in an easily shareable JSON format. Changing values in the textarea updates the visualization.</span>
-            <button on:click={() => {
-                $spec = JSON.parse(textarea.value);
-            }}>Update</button>
-        </div>
-    </div>
-    {/if}
-
-    {#await confusionPromise}
-    	<p>...waiting</p>
-    {:then confusions}
-        <MatrixWithUI {confusions} />
-    {:catch error}
-	    <p style="color: red">{error.message}</p>
-    {/await}
-</div>

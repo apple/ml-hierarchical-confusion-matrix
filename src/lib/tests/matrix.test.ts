@@ -33,8 +33,8 @@ export function synthMatrix(): Matrix {
         new Node(
             { name: '[BC]', id: 'A:[BC]', start: 1, end: 3 },
             new Node({ name: 'B', id: 'A:[BC]:B', start: 1, end: 2 }),
-            new Node({ name: 'C', id: 'A:[BC]:C', start: 2, end: 3 }),
-        ),
+            new Node({ name: 'C', id: 'A:[BC]:C', start: 2, end: 3 })
+        )
     );
     return new Matrix(freqs, root);
 }
@@ -46,7 +46,7 @@ test('totalCount', () => {
 test('classes', () => {
     const result = synthMatrix()
         .classes()
-        .reduce((acc, n) => acc += n.data.name, '');
+        .reduce((acc, n) => (acc += n.data.name), '');
     expect(result).toBe('rootA[BC]BC');
 });
 
@@ -66,12 +66,12 @@ test('slice', () => {
 
 test('totalRows', () => {
     const matrix = synthMatrix();
-    const totals = matrix.classes().map(c => matrix.totalRow(c));
+    const totals = matrix.classes().map((c) => matrix.totalRow(c));
     expect(totals).toStrictEqual([30, 10, 20, 10, 10]);
 });
 
 test('totalColumns', () => {
     const matrix = synthMatrix();
-    const totals = matrix.classes().map(c => matrix.totalColumn(c));
+    const totals = matrix.classes().map((c) => matrix.totalColumn(c));
     expect(totals).toStrictEqual([30, 7, 23, 11, 12]);
 });

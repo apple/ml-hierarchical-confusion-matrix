@@ -25,14 +25,6 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
     }
 </script>
 
-<style>
-    .outline {
-        fill: none;
-        stroke: #eeeeee;
-        pointer-events: all;
-    }
-</style>
-
 <line
     x1={x + (cellSize / 8) * 3}
     y1={y + (cellSize / 8) * 3}
@@ -51,3 +43,11 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
     width={cellSize}
     height={cellSize}
 />
+
+<style>
+    .outline {
+        fill: none;
+        stroke: #eeeeee;
+        pointer-events: all;
+    }
+</style>

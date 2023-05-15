@@ -19,7 +19,7 @@ test('layoutCompactVertical', () => {
         { node: 'h', pos: [2, 4], span: 1 },
     ];
 
-    const l = layoutCompact(_ => true, simpleTree());
+    const l = layoutCompact((_) => true, simpleTree());
     const result = l.map(({ node, pos, span }) => ({ node: node.data, pos, span }));
     expect(result).toStrictEqual(positions);
 });
@@ -36,7 +36,7 @@ test('layoutCompactHorizontal', () => {
         { node: 'h', pos: [4, 2], span: 1 },
     ];
 
-    const l = flip(layoutCompact(_ => true, simpleTree()));
+    const l = flip(layoutCompact((_) => true, simpleTree()));
     const result = l.map(({ node, pos, span }) => ({ node: node.data, pos, span }));
     expect(result).toStrictEqual(positions);
 });
@@ -53,7 +53,7 @@ test('layoutClassicalVertical', () => {
         { node: 'h', pos: [2, 7], span: 0 },
     ];
 
-    const l = layoutClassic(_ => true, simpleTree());
+    const l = layoutClassic((_) => true, simpleTree());
     const result = l.map(({ node, pos, span }) => ({ node: node.data, pos, span }));
     expect(result).toStrictEqual(positions);
 });

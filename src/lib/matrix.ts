@@ -23,10 +23,7 @@ export type Entry = Node<Data & RangeIndex>;
 // TODO: use `ndarray-sum` to speed up these ops.
 // TODO: Consider using prefix sum;
 export class Matrix {
-    constructor(
-        readonly freqs: NdArray,
-        readonly axis: Entry,
-    ) { }
+    constructor(readonly freqs: NdArray, readonly axis: Entry) {}
 
     slice(actual: RangeIndex, observed: RangeIndex): NdArray {
         return this.freqs
@@ -36,7 +33,7 @@ export class Matrix {
 
     classes(): Array<Entry> {
         const result = [];
-        this.axis.preorder(n => result.push(n));
+        this.axis.preorder((n) => result.push(n));
         return result;
     }
 
@@ -60,9 +57,7 @@ export class Matrix {
     }
 
     truePositives(forClass: Entry): number {
-        return forClass
-            .leaves()
-            .reduce((acc, c) => acc + this.frequency(c, c), 0);
+        return forClass.leaves().reduce((acc, c) => acc + this.frequency(c, c), 0);
     }
 
     falsePositives(forClass: Entry): number {
@@ -71,9 +66,7 @@ export class Matrix {
     }
 
     trueNegatives(forClass: Entry): number {
-        const completeDiag = this.axis
-            .leaves()
-            .reduce((acc, c) => acc + this.frequency(c, c), 0);
+        const completeDiag = this.axis.leaves().reduce((acc, c) => acc + this.frequency(c, c), 0);
         return completeDiag - this.truePositives(forClass);
     }
 

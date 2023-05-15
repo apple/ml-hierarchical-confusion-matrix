@@ -50,10 +50,50 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
     }
 </script>
 
+{#if node.isLeaf()}
+    <text
+        dominant-baseline="middle"
+        style="cursor: default;"
+        class={$currentCell && $currentCell[direction] === node ? 'label active' : 'label'}
+    >
+        {truncate(node.data.name)}
+    </text>
+{:else if $spec.collapsed.includes(node.data.id)}
+    <text
+        dominant-baseline="middle"
+        style="cursor: pointer;"
+        on:click={expand}
+        on:keydown={expand}
+        class={$currentCell && $currentCell[direction] === node ? 'label active' : 'label'}
+    >
+        <tspan dominant-baseline="middle" class="collapseIcon">{'>'}</tspan>
+        {truncate(node.data.name)}
+    </text>
+{:else}
+    <text
+        dominant-baseline="middle"
+        style="cursor: pointer;"
+        class={$currentCell && $currentCell[direction] === node ? 'label active' : 'label'}
+    >
+        <tspan on:click={collapse} on:keydown={collapse}>
+            <tspan dominant-baseline="middle" class="collapseIcon">⋁</tspan>
+            <tspan dominant-baseline="middle" x="10">
+                {truncate(node.data.name)}
+            </tspan>
+        </tspan>
+        {#if $spec.filter?.includes(node.data.id)}
+            <tspan dominant-baseline="middle" on:click={clear} on:keydown={clear}> ❌ </tspan>
+        {:else}
+            <tspan y="2" on:click={filter} on:keydown={filter}> 🔎 </tspan>
+        {/if}
+    </text>
+{/if}
+
 <style>
     .label {
         font-size: 12px;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+            sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
         text-rendering: optimizeLegibility;
     }
 
@@ -66,50 +106,3 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
         stroke: #dddddd;
     }
 </style>
-
-{#if node.isLeaf()}
-    <text
-        dominant-baseline="middle"
-        style="cursor: default;"
-        class={$currentCell && $currentCell[direction] === node ? 'label active' : 'label'}>
-        {truncate(node.data.name)}
-    </text>
-{:else if $spec.collapsed.includes(node.data.id)}
-    <text
-        dominant-baseline="middle"
-        style="cursor: pointer;"
-        on:click={expand}
-        on:keydown={expand}
-        class={$currentCell && $currentCell[direction] === node ? 'label active' : 'label'}>
-        <tspan dominant-baseline="middle" class="collapseIcon">{'>'}</tspan>
-        {truncate(node.data.name)}
-    </text>
-{:else}
-    <text
-        dominant-baseline="middle"
-        style="cursor: pointer;"
-        class={$currentCell && $currentCell[direction] === node ? 'label active' : 'label'}>
-        <tspan
-            on:click={collapse}
-            on:keydown={collapse}>
-            <tspan dominant-baseline="middle" class="collapseIcon">⋁</tspan>
-            <tspan dominant-baseline="middle" x="10">
-                {truncate(node.data.name)}
-            </tspan>
-        </tspan>
-        {#if $spec.filter?.includes(node.data.id)}
-            <tspan dominant-baseline="middle"
-                on:click={clear}
-                on:keydown={clear}>
-                ❌
-            </tspan>
-        {:else}
-            <tspan
-                y="2"
-                on:click={filter}
-                on:keydown={filter}>
-                🔎
-            </tspan>
-        {/if}
-    </text>
-{/if}

@@ -1,13 +1,9 @@
 root = true
 
 [*]
-end_of_line = lf
-
-[*.{ts,css,js,html,svelte}]
 charset = utf-8
-indent_size = 4
+insert_final_newline = true
+end_of_line = lf
 indent_style = space
-
-[*.json]
 indent_size = 4
-indent_style = space
+max_line_length = 100

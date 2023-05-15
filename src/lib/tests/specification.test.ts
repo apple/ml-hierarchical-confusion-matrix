@@ -30,7 +30,8 @@ test('Parameters', () => {
 test('Subview of one category', () => {
     const spec: Spec = {
         ...defaults,
-        classes: ['animal'], filter: ['animal:insects'],
+        classes: ['animal'],
+        filter: ['animal:insects'],
     };
     nop(spec); // silence warnings
 });

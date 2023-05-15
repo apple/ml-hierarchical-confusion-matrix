@@ -36,21 +36,7 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
     }
 </script>
 
-<style>
-    .outline {
-        fill: none;
-        stroke: #eeeeee;
-        pointer-events: all;
-    }
-</style>
-
-<rect
-    x={cX}
-    y={cY}
-    width={sideLength}
-    height={sideLength}
-    fill={color}
-/>
+<rect x={cX} y={cY} width={sideLength} height={sideLength} fill={color} />
 <rect
     on:mouseout={mouseout}
     on:blur={mouseout}
@@ -62,3 +48,11 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
     width={cellSize}
     height={cellSize}
 />
+
+<style>
+    .outline {
+        fill: none;
+        stroke: #eeeeee;
+        pointer-events: all;
+    }
+</style>

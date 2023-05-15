@@ -28,21 +28,22 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
     }
 </script>
 
-<style>
-    .outline {
-        stroke: #eeeeee;
-        pointer-events: all;
-    }
-</style>
-
 <rect
     on:mouseout={mouseout}
     on:blur={mouseout}
     on:mouseover={mouseover}
     on:focus={mouseover}
     class="outline"
-    {x} {y}
+    {x}
+    {y}
     width={cellSize}
     height={cellSize}
     fill={interpolateColors(value)}
 />
+
+<style>
+    .outline {
+        stroke: #eeeeee;
+        pointer-events: all;
+    }
+</style>

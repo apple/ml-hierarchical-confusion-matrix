@@ -9,8 +9,8 @@ import { scaleLinear } from 'd3-scale';
 import type { ScaleLinear } from 'd3-scale';
 
 export interface Statistic {
-    name(): string,
-    value(entry: Entry): [normalized: number, valueStr: string],
+    name(): string;
+    value(entry: Entry): [normalized: number, valueStr: string];
 }
 
 /** Adapted from https://stackoverflow.com/a/9462382 */
@@ -18,12 +18,12 @@ export interface Statistic {
 export function nFormatter(num: number, digits: number): string {
     const si = [
         { value: 1, symbol: '' },
-        { value: 1E3, symbol: 'k' },
-        { value: 1E6, symbol: 'M' },
-        { value: 1E9, symbol: 'G' },
-        { value: 1E12, symbol: 'T' },
-        { value: 1E15, symbol: 'P' },
-        { value: 1E18, symbol: 'E' },
+        { value: 1e3, symbol: 'k' },
+        { value: 1e6, symbol: 'M' },
+        { value: 1e9, symbol: 'G' },
+        { value: 1e12, symbol: 'T' },
+        { value: 1e15, symbol: 'P' },
+        { value: 1e18, symbol: 'E' },
     ];
     const rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
     let i: number;
@@ -40,7 +40,7 @@ export class Probability implements Statistic {
         private matrix: Matrix,
         private desc: string,
         private fn: (m: Matrix, e: Entry) => number,
-        private digits: number = 2,
+        private digits: number = 2
     ) {}
 
     name(): string {
@@ -59,10 +59,10 @@ export class Count implements Statistic {
     constructor(
         private matrix: Matrix,
         private desc: string,
-        private fn: (m: Matrix, e: Entry) => number,
+        private fn: (m: Matrix, e: Entry) => number
     ) {
         const minmax = [Infinity, -Infinity];
-        this.matrix.axis.preorder(n => {
+        this.matrix.axis.preorder((n) => {
             const count = fn(matrix, n);
             minmax[0] = Math.min(minmax[0], count);
             minmax[1] = Math.max(minmax[1], count);

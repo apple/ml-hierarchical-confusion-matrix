@@ -18,7 +18,8 @@ export function layoutCompact<T>(pred: PredFn<T>, hierarchy: Node<T>): Array<Lay
     const layout = [];
     const isBottom = (node: Node<T>): boolean => node.isLeaf() || !pred(node);
     hierarchy.fullorder(
-        n => { // pre-order
+        (n) => {
+            // pre-order
             layout.push({ node: n, pos: [currPos[0], currPos[1]] });
             currPos[0] += 1;
 
@@ -26,7 +27,8 @@ export function layoutCompact<T>(pred: PredFn<T>, hierarchy: Node<T>): Array<Lay
                 numChilds.set(n, 1);
             }
         },
-        n => { // post-order
+        (n) => {
+            // post-order
             if (!isBottom(n)) {
                 const nc = n.children.reduce((acc, c) => acc + numChilds.get(c), 0);
                 numChilds.set(n, nc);
@@ -37,9 +39,9 @@ export function layoutCompact<T>(pred: PredFn<T>, hierarchy: Node<T>): Array<Lay
                 currPos[1] += 1;
             }
         },
-        pred,
+        pred
     );
-    layout.forEach(l => {
+    layout.forEach((l) => {
         l.span = numChilds.get(l.node);
         return l;
     });
@@ -52,7 +54,8 @@ export function layoutClassic<T>(pred: PredFn<T>, hierarchy: Node<T>): Array<Lay
     const layout = [];
     const isBottom = (node: Node<T>): boolean => node.isLeaf() || !pred(node);
     hierarchy.fullorder(
-        n => { // pre-order
+        (n) => {
+            // pre-order
             layout.push({ node: n, pos: [currPos[0], currPos[1]] });
             currPos[0] += 1;
             currPos[1] += 1;
@@ -61,17 +64,18 @@ export function layoutClassic<T>(pred: PredFn<T>, hierarchy: Node<T>): Array<Lay
                 numDescend.set(n, 0);
             }
         },
-        n => { // post-order
+        (n) => {
+            // post-order
             if (!isBottom(n)) {
-                const nc = n.children.length
-                    + n.children.reduce((acc, c) => acc + numDescend.get(c), 0);
+                const nc =
+                    n.children.length + n.children.reduce((acc, c) => acc + numDescend.get(c), 0);
                 numDescend.set(n, nc);
             }
             currPos[0] -= 1;
         },
-        pred,
+        pred
     );
-    layout.forEach(l => {
+    layout.forEach((l) => {
         l.span = numDescend.get(l.node);
         return l;
     });

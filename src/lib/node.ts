@@ -20,10 +20,7 @@ function id<T>(a: Node<T>, b: Node<T>): boolean {
 
 export class Node<T> {
     children?: Array<Node<T>>;
-    constructor(
-        public data: T,
-        ...children: Array<Node<T>>
-    ) {
+    constructor(public data: T, ...children: Array<Node<T>>) {
         this.data = data;
         this.children = children ? children : [];
     }
@@ -52,21 +49,18 @@ export class Node<T> {
 
     leaves(pred?: PredFn<T>): Array<Node<T>> {
         const leafs = [];
-        this.preorder(
-            n => {
-                if (n.isLeaf() || (pred && !pred(n))) {
-                    leafs.push(n);
-                }
-            },
-            pred,
-        );
+        this.preorder((n) => {
+            if (n.isLeaf() || (pred && !pred(n))) {
+                leafs.push(n);
+            }
+        }, pred);
         return leafs;
     }
 
     merge(other: Node<T>, identity: IdentityFn<T> = id): this {
-        const match = this.children.find(own => identity(own, other));
+        const match = this.children.find((own) => identity(own, other));
         if (match) {
-            other.children.forEach(c => match.merge(c, identity));
+            other.children.forEach((c) => match.merge(c, identity));
         } else {
             this.children.push(other);
         }
@@ -74,9 +68,9 @@ export class Node<T> {
     }
 
     has(subtree: Node<T>, identity: IdentityFn<T> = id): boolean {
-        const match = this.children.find(own => identity(own, subtree));
+        const match = this.children.find((own) => identity(own, subtree));
         if (match) {
-            return subtree.children.every(c => match.has(c, identity));
+            return subtree.children.every((c) => match.has(c, identity));
         } else {
             return false;
         }
@@ -85,9 +79,9 @@ export class Node<T> {
     // TODO: Consider a `Path` type here (we don't allow branches)
     find(node: Node<T>, identity: IdentityFn<T> = id): Node<T> | undefined {
         if (node.isLeaf()) {
-            return this.children.find(own => identity(own, node));
+            return this.children.find((own) => identity(own, node));
         } else {
-            const match = this.children.find(own => identity(own, node));
+            const match = this.children.find((own) => identity(own, node));
             if (match) {
                 return match.find(node.children[0], identity);
             }
@@ -97,12 +91,12 @@ export class Node<T> {
     // TODO: Consider a `Path` type here (we don't allow branches)
     remove(node: Node<T>, identity: IdentityFn<T> = id): Node<T> | undefined {
         if (node.isLeaf()) {
-            const index = this.children.findIndex(own => identity(own, node));
+            const index = this.children.findIndex((own) => identity(own, node));
             if (index > -1) {
                 return this.children.splice(index, 1)[0];
             }
         } else {
-            const match = this.children.find(own => identity(own, node));
+            const match = this.children.find((own) => identity(own, node));
             if (match) {
                 return match.remove(node, identity);
             }
