@@ -4,16 +4,15 @@ For licensing see accompanying LICENSE file.
 Copyright (C) 2022 Apple Inc. All Rights Reserved.
 -->
 
-<script lang="ts"> 
-    import { spec } from './stores';
+<script lang="ts">
+    import { spec } from '../lib/components/stores';
     import { cloneDeep } from 'lodash';
-    import MatrixWithUI from './MatrixWithUI.svelte';
+    import MatrixWithUI from '../lib/components/MatrixWithUI.svelte';
+    import { version } from '$app/environment'
 
-    import * as pkg from '../../package.json'
-
-    const version = pkg.version;
-
-    export let examples = [];
+    /** @type {import('./$types').PageData} */
+    export let data;
+    let examples = data.examples;
     let example = examples[0];
 
     let specVisible = false;
@@ -133,7 +132,7 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
 <div class="fixed-header">
     <div class="container">
         <nav>
-            <div class="nav-brand">Neo: Hierarchical Confusion Matrix<small class="version">Version {version}</small></div>
+            <div class="nav-brand">Neo: Hierarchical Confusion Matrix<small class="version">Version { version }</small></div>
             <ul>
                 <li>
                     Dataset:

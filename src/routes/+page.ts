@@ -3,12 +3,15 @@
  *
  * Copyright (C) 2022 Apple Inc. All Rights Reserved.
  */
+import { csv, json, synth, vega, vegaCompressed } from '../lib/loaders';
+import App from './+page.svelte';
+import type { Confusion } from '../lib/confusions';
+import { defaults } from '../lib/specification';
+import type { Spec } from '../lib/specification';
 
-import { csv, json, synth, vega, vegaCompressed } from './loaders';
-import App from './components/App.svelte';
-import type { Confusion } from './confusions';
-import { defaults } from './specification';
-import type { Spec } from './specification';
+// Configuration for SvelteKit.
+export const prerender = true;
+export const ssr = false;
 
 type Loader = () => Promise<Array<Confusion>>;
 
@@ -102,7 +105,7 @@ const examples: Array<Example> = [
     },
 ];
 
-new App({
-    target: document.body,
-    props: { examples },
-});
+/** @type {import('./$types').PageLoad} */
+export function load() {
+    return { examples: examples };
+}
