@@ -5,7 +5,7 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
 -->
 
 <script lang="ts">
-    import { cloneDeep } from 'lodash';
+    import cloneDeep from 'lodash';
     import MatrixWithUI from '../lib/components/MatrixWithUI.svelte';
     import { spec } from '../lib/components/stores';
     import { version } from '$app/environment';
