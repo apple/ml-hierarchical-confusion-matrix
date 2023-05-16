@@ -1,7 +1,7 @@
 {
     "name": "@apple/hierarchical-confusion-matrix",
     "author": "Apple Inc.",
-    "version": "1.0.2",
+    "version": "1.1.0",
     "license": "SEE LICENSE IN `LICENSE`",
     "main": "package/confMat.js",
     "files": [
