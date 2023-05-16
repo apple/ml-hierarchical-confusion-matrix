@@ -5,7 +5,7 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
 -->
 
 <script lang="ts">
-    import cloneDeep from 'lodash';
+    import lodash from 'lodash';
     import MatrixWithUI from '../lib/components/MatrixWithUI.svelte';
     import { spec } from '../lib/components/stores';
     import { version } from '$app/environment';
@@ -18,7 +18,7 @@ Copyright (C) 2022 Apple Inc. All Rights Reserved.
     let specVisible = false;
 
     // We always want to start with a fresh slate
-    $: $spec = cloneDeep(example.spec);
+    $: $spec = lodash.cloneDeep(example.spec);
 
     $: confusionPromise = example.loader(example.filename);
 
