@@ -45,7 +45,8 @@
         "fmt": "prettier --ignore-path .eslintignore --check .",
         "lint": "eslint . --max-warnings 0",
         "fix:lint": "eslint . --fix",
-        "fix:fmt": "prettier --ignore-path .eslintignore --write ."
+        "fix:fmt": "prettier --ignore-path .eslintignore --write .",
+        "deploy": "yarn build && gh-pages -d build"
     },
     "dependencies": {
         "d3-array": "^3.2.3",
