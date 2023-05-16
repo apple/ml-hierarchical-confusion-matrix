@@ -1,7 +1,3 @@
 node_modules/
 .svelte-kit/
-
-public/bundle.js
-public/app.js
-public/confMat.js
-public/third_party/
+build/
