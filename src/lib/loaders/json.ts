@@ -10,7 +10,5 @@ import type { Confusion } from '../confusions';
 export async function json(filename: string): Promise<Array<Confusion>> {
     const response = await fetch(filename);
     const json = await response.json();
-    const data = json.data.values;
-
-    return data;
+    return json.data.values;
 }

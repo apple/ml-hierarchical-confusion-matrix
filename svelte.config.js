@@ -14,6 +14,9 @@ const config = {
     preprocess: vitePreprocess(),
 
     kit: {
+        paths: {
+            base: '/ml-hierarchical-confusion-matrix',
+        },
         version: {
             name: pkg.version,
         },
