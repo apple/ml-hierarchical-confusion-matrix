@@ -15,6 +15,11 @@ jobs:
               uses: actions/setup-node@v3
             - name: Install Node dependencies
               run: yarn --frozen-lockfile
-            - run: yarn test:unit
-            - run: yarn lint
-            - run: yarn fmt
+            - name: Build
+              run: yarn build
+            - name: Test
+              run: yarn test:unit
+            - name: Lint
+              run: yarn lint
+            - name: Check formatting
+              run: yarn fmt

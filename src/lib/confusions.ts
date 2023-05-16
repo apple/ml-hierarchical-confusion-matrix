@@ -6,7 +6,7 @@
 
 import type { Condition, Spec } from './specification';
 import { rollup, sum } from 'd3-array';
-import { cloneDeep } from 'lodash';
+import lodash from 'lodash';
 import type { Entry } from './matrix';
 import { Matrix } from './matrix';
 import ndarray from 'ndarray';
@@ -213,7 +213,7 @@ export function addRangeIndex(root: Entry): Entry {
 }
 
 export function buildMatrix(spec: Spec, confusions: Array<Confusion>): Matrix {
-    let cloned = cloneDeep(confusions);
+    let cloned = lodash.cloneDeep(confusions);
     addMissingLabels(cloned);
 
     // Condition
