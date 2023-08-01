@@ -10,7 +10,7 @@
     "type": "module",
     "devDependencies": {
         "@sveltejs/adapter-static": "^2.0.2",
-        "@sveltejs/kit": "^1.16.3",
+        "@sveltejs/kit": "^1.22.4",
         "@types/cwise": "^1.0.4",
         "@types/d3-array": "^3.0.5",
         "@types/d3-dsv": "^3.0.1",
