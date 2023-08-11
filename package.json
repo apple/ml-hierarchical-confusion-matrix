@@ -3,14 +3,30 @@
     "author": "Apple Inc.",
     "version": "1.1.0",
     "license": "SEE LICENSE IN `LICENSE`",
-    "main": "package/confMat.js",
     "files": [
-        "src"
+        "src",
+        "package",
+        "README.md"
     ],
+    "main": "./package/confMat.umd.cjs",
+    "module": "./package/confMat.js",
+    "exports": {
+        ".": {
+            "import": "./package/confMat.js",
+            "require": "./package/confMat.umd.cjs"
+        },
+        "./package/*.css": {
+            "import": "./package/*.css",
+            "require": "./package/*.css"
+        }
+    },
+    "types": "./dist/index.d.ts",
+    "style": "./dist/style.css",
     "type": "module",
     "devDependencies": {
         "@sveltejs/adapter-static": "^2.0.2",
         "@sveltejs/kit": "^1.22.4",
+        "@sveltejs/vite-plugin-svelte": "^2.4.5",
         "@types/cwise": "^1.0.4",
         "@types/d3-array": "^3.0.5",
         "@types/d3-dsv": "^3.0.1",
@@ -31,10 +47,13 @@
         "tslib": "^2.6.1",
         "typescript": "^5.1.6",
         "vite": "^4.3.9",
+        "vite-plugin-dts": "^3.5.1",
         "vitest": "^0.34.1"
     },
     "scripts": {
         "build": "vite build",
+        "build:lib": "vite build --config vite.config.lib.ts",
+        "prepack": "yarn build:lib",
         "dev": "vite dev",
         "preview": "vite preview",
         "coverage": "vitest run --coverage",
