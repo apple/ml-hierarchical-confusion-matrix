@@ -72,3 +72,4 @@ node_modules
 public/bundle.*
 public/app.*
 public/confMat.*
+package/*
