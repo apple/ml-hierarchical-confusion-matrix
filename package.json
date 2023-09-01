@@ -25,7 +25,7 @@
     "type": "module",
     "devDependencies": {
         "@sveltejs/adapter-static": "^2.0.2",
-        "@sveltejs/kit": "^1.22.4",
+        "@sveltejs/kit": "^1.24.0",
         "@sveltejs/vite-plugin-svelte": "^2.4.5",
         "@types/cwise": "^1.0.4",
         "@types/d3-array": "^3.0.5",
