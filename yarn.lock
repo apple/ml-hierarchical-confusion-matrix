@@ -1047,10 +1047,10 @@ eslint-plugin-json@^3.1.0:
     lodash "^4.17.21"
     vscode-json-languageservice "^4.1.6"
 
-eslint-plugin-svelte@^2.33.0:
-  version "2.33.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-svelte/-/eslint-plugin-svelte-2.33.0.tgz#c52a867965e902aa9a4d1559606b7e2b27f01b53"
-  integrity sha512-kk7Z4BfxVjFYJseFcOpS8kiKNio7KnAnhFagmM89h1wNSKlM7tIn+uguNQppKM9leYW+S+Us0Rjg2Qg3zsEcvg==
+eslint-plugin-svelte@^2.33.2:
+  version "2.33.2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-svelte/-/eslint-plugin-svelte-2.33.2.tgz#af4d34dd0fa05a586192b6f0d8f310923efae7fd"
+  integrity sha512-knWmauax+E/jvQ9CmuX5dAhQKP9P4eGQZxWa5RMutEJVCcy0wFmiUvOeDND2jR4vUkbDlX4khKjaceY7QzbkYw==
   dependencies:
     "@eslint-community/eslint-utils" "^4.2.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
