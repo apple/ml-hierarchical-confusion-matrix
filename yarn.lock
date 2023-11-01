@@ -398,10 +398,10 @@
     "@types/cwise-compiler" "*"
     "@types/ndarray" "*"
 
-"@types/d3-array@^3.0.5":
-  version "3.0.5"
-  resolved "https://registry.npmjs.org/@types/d3-array/-/d3-array-3.0.5.tgz#857c1afffd3f51319bbc5b301956aca68acaa7b8"
-  integrity sha512-Qk7fpJ6qFp+26VeQ47WY0mkwXaiq8+76RJcncDEfMc2ocRzXLO67bLFRNI4OX1aGBoPzsM5Y2T+/m1pldOgD+A==
+"@types/d3-array@^3.0.9":
+  version "3.0.9"
+  resolved "https://registry.yarnpkg.com/@types/d3-array/-/d3-array-3.0.9.tgz#54feabd29d1f15940d422c16008c63c1e4e3d188"
+  integrity sha512-mZowFN3p64ajCJJ4riVYlOjNlBJv3hctgAY01pjw3qTnJePD8s9DZmYDzhHKvzfCYvdjwylkU38+Vdt7Cu2FDA==
 
 "@types/d3-dsv@^3.0.2":
   version "3.0.2"
