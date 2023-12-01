@@ -29,7 +29,7 @@
         "@sveltejs/vite-plugin-svelte": "^2.4.5",
         "@types/cwise": "^1.0.4",
         "@types/d3-array": "^3.0.9",
-        "@types/d3-dsv": "^3.0.2",
+        "@types/d3-dsv": "^3.0.7",
         "@types/d3-scale": "^4.0.6",
         "@types/lodash": "^4.14.195",
         "@types/ndarray": "^1.0.11",
