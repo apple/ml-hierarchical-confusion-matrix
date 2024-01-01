@@ -2269,10 +2269,10 @@ validator@^13.7.0:
   resolved "https://registry.npmjs.org/validator/-/validator-13.11.0.tgz#23ab3fd59290c61248364eabf4067f04955fbb1b"
   integrity sha512-Ii+sehpSfZy+At5nPdnyMhx78fEoPDkR2XW/zimHEL3MyGJQOCQ7WeP20jPYRz7ZCpcKLB21NxuXHF3bxjStBQ==
 
-vega-scale@^7.3.0:
-  version "7.3.0"
-  resolved "https://registry.npmjs.org/vega-scale/-/vega-scale-7.3.0.tgz#02b83435a892c6d91a87ee7d3d350fac987f464b"
-  integrity sha512-pMOAI2h+e1z7lsqKG+gMfR6NKN2sTcyjZbdJwntooW0uFHwjLGjMSY7kSd3nSEquF0HQ8qF7zR6gs1eRwlGimw==
+vega-scale@^7.3.1:
+  version "7.3.1"
+  resolved "https://registry.yarnpkg.com/vega-scale/-/vega-scale-7.3.1.tgz#5cb23d1edcf5d759e25fe40b7608a6132a62da46"
+  integrity sha512-tyTlaaCpHN2Ik/PPKl/j9ThadBDjPtypqW1D7IsUSkzfoZ7RPlI2jwAaoj2C/YW5jFRbEOx3njmjogp48I5CvA==
   dependencies:
     d3-array "^3.2.2"
     d3-interpolate "^3.0.1"
