@@ -47,7 +47,7 @@
         "tslib": "^2.6.2",
         "typescript": "^5.3.3",
         "vite": "^4.3.9",
-        "vite-plugin-dts": "^3.5.1",
+        "vite-plugin-dts": "^3.7.0",
         "vitest": "^0.34.6"
     },
     "scripts": {
