@@ -27,7 +27,7 @@
         "@sveltejs/adapter-static": "^2.0.2",
         "@sveltejs/kit": "^1.30.4",
         "@sveltejs/vite-plugin-svelte": "^2.5.3",
-        "@types/cwise": "^1.0.4",
+        "@types/cwise": "^1.0.6",
         "@types/d3-array": "^3.2.1",
         "@types/d3-dsv": "^3.0.7",
         "@types/d3-scale": "^4.0.8",
