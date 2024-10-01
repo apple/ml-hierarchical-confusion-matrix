@@ -72,6 +72,6 @@
         "lodash": "^4.17.21",
         "ndarray": "^1.0.19",
         "ndarray-ops": "^1.2.2",
-        "vega-scale": "^7.4.0"
+        "vega-scale": "^7.4.1"
     }
 }
