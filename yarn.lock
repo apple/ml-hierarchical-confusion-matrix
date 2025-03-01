@@ -676,10 +676,10 @@
   resolved "https://registry.yarnpkg.com/@types/ndarray/-/ndarray-1.0.14.tgz#96b28c09a3587a76de380243f87bb7a2d63b4b23"
   integrity sha512-oANmFZMnFQvb219SSBIhI1Ih/r4CvHDOzkWyJS/XRqkMrGH5/kaPSA1hQhdIBzouaE+5KpE/f5ylI9cujmckQg==
 
-"@types/node@^22.10.3":
-  version "22.10.3"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-22.10.3.tgz#cdc2a89bf6e5d5e593fad08e83f74d7348d5dd10"
-  integrity sha512-DifAyw4BkrufCILvD3ucnuN8eydUfc/C1GlyrnI+LK6543w5/L3VeVgf05o3B4fqSXP1dKYLOZsKfutpxPzZrw==
+"@types/node@^22.13.8":
+  version "22.13.8"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-22.13.8.tgz#57e2450295b33a6518d6fd4f65f47236d3e41d8d"
+  integrity sha512-G3EfaZS+iOGYWLLRCEAXdWK9my08oHNZ+FHluRiggIYJPOXzhOiDgpVCUHaUvyIC5/fj7C/p637jdzC666AOKQ==
   dependencies:
     undici-types "~6.20.0"
 
