@@ -1,4 +1,8 @@
 name: Auto-merge Dependabot PRs
+
+permissions:
+    contents: read
+
 on:
     schedule:
         - cron: '0 * * * *'
