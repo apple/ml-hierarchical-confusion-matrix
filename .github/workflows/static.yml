@@ -1,15 +1,13 @@
 name: Deploy static content to Pages
 
+permissions:
+    contents: read
+
 on:
     push:
         branches: ['main']
 
     workflow_dispatch:
-
-permissions:
-    contents: read
-    pages: write
-    id-token: write
 
 concurrency:
     group: 'pages'
@@ -17,6 +15,10 @@ concurrency:
 
 jobs:
     deploy:
+        permissions:
+            contents: read
+            pages: write
+            id-token: write
         environment:
             name: github-pages
             url: ${{ steps.deployment.outputs.page_url }}
