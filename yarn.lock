@@ -703,10 +703,10 @@
   resolved "https://registry.npmjs.org/@types/json-schema/-/json-schema-7.0.12.tgz#d70faba7039d5fca54c83c7dbab41051d2b6f6cb"
   integrity sha512-Hr5Jfhc9eYOQNPYO5WLDq/n4jqijdHNlDXjuAQkkt+mWdQR+XJToOHrsD4cPaMXpn6KO7y2+wM8AZEs8VpBLVA==
 
-"@types/lodash@^4.17.20":
-  version "4.17.20"
-  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.17.20.tgz#1ca77361d7363432d29f5e55950d9ec1e1c6ea93"
-  integrity sha512-H3MHACvFUEiujabxhaI/ImO6gUrd8oOurg7LQtS7mbwIXA/cUqWrvBsaeJ23aZEPk1TAYkurjfMbSELfoCXlGA==
+"@types/lodash@^4.17.21":
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.17.21.tgz#b806831543d696b14f8112db600ea9d3a1df6ea4"
+  integrity sha512-FOvQ0YPD5NOfPgMzJihoT+Za5pdkDJWcbpuj1DjaKZIr/gxodQjY/uWEFlTNqW2ugXHUiL8lRQgw63dzKHZdeQ==
 
 "@types/ndarray@*", "@types/ndarray@^1.0.14":
   version "1.0.14"
