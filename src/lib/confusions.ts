@@ -82,10 +82,17 @@ function addMissingLabels(confusions: Array<Confusion>): void {
     }
     for (const { actual, observed } of confusions) {
         for (const l of labels) {
-            if (!actual.find((c) => topLevel(c) === l)) {
+            const hasActual = actual.find((c) => topLevel(c) === l);
+            const hasObserved = observed.find((c) => topLevel(c) === l);
+
+            if (!hasActual && !hasObserved) {
+                continue;
+            }
+
+            if (!hasActual) {
                 actual.push(`${l}:none`);
             }
-            if (!observed.find((c) => topLevel(c) === l)) {
+            if (!hasObserved) {
                 observed.push(`${l}:none`);
             }
         }
